@@ -1,0 +1,19 @@
+/* This component applies the style of the navBar to the NavBar component */
+
+.baseConversion {
+  font-size: 15px;
+}
+.complementCalculator {
+  font-size: 15px;
+}
+.navBarStyle {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  font-size: 15px;
+}
+
+.navBarTitleText {
+  font-size: 15px;
+}
