@@ -2,6 +2,8 @@ import React,{Component} from 'react';
 import './App.css';
 import './Components/NavBar.css'
 import BaseConversion from './Components/BaseConversion';
+import ComplementCalculator from './Components/ComplementCalculator';
+import './Components/DeleteButtonIcon.css'
 // import NavBar from './Components/NavBar.js'
 
 // function App() {
@@ -40,10 +42,29 @@ class App extends Component{
       };
      
     }
-    
+
+    // These functions will display and remove the app components from the homepage
+
      displayBaseConversionApp = () => { 
-         if(this.state.baseConversionApp === false) {
-          this.setState({baseConversionApp: true}); 
+      if(this.state.baseConversionApp === false) {
+        this.setState({baseConversionApp: true}); 
+       }
+     }
+
+     removeBaseConversionApp = () => { 
+      if(this.state.baseConversionApp === true) {
+        this.setState({baseConversionApp: false}); 
+       }
+     }
+
+     displayComplementCalculatorApp = () => { 
+         if(this.state.complementCalculatorApp === false) {
+          this.setState({complementCalculatorApp: true}); 
+         }
+     }
+     removeComplementCalculatorApp = () => { 
+         if(this.state.complementCalculatorApp === true) {
+          this.setState({complementCalculatorApp: false}); 
          }
      }
 
@@ -60,7 +81,7 @@ class App extends Component{
     render(){
       return(
         <div className="App container-fluid">
-            <header className="row">
+            <header className="row mb-5">
               {/* <NavBar /> */}
                <nav className='navBarStyle'>
                   <section className='navBarItem1'>
@@ -75,7 +96,7 @@ class App extends Component{
                   </section>
                   <section className='navBarItem3'>
                       <div className='navBarLink'>
-                        <button id='complementCalculatorApp' className='btn'> <h2><i class="bi bi-plus-slash-minus"></i>&nbsp;<span className='complementCalculator'>Complement Calculator</span></h2> </button> 
+                        <button id='complementCalculatorApp' className='btn'onClick={this.displayComplementCalculatorApp}> <h2><i class="bi bi-plus-slash-minus"></i>&nbsp;<span className='complementCalculator'>Complement Calculator</span></h2> </button> 
                       </div>
                   </section> 
 
@@ -83,9 +104,23 @@ class App extends Component{
               
             </header>
            <div className='row'>
-             <div className='col-sm-12' style={{display:(this.state.baseConversionApp?"block":"none")}}>
-              <BaseConversion />
+             <div className='col-sm-6' style={{display:(this.state.baseConversionApp?"block":"none")}}>
               
+              <div className="deleteIconStyle" onClick={this.removeBaseConversionApp}>
+                <div><i className="btn bi bi-x-square"></i></div>
+              </div>
+
+              <BaseConversion/> 
+              
+             </div>
+             <div className='col-sm-6' style={{display:(this.state.complementCalculatorApp?"block":"none")}}>
+             
+              <div className="deleteIconStyle" onClick={this.removeComplementCalculatorApp}>
+                <div><i className="btn bi bi-x-square"></i></div>
+              </div>
+
+              <ComplementCalculator />
+             
              </div>
              </div>
           </div>

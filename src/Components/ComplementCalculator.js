@@ -1,12 +1,12 @@
 import React,{Component} from 'react';
-import './BaseConversion.css'
+import './ComplementCalculator.css'
 import AppName from './AppName';
 import InputText from './InputText.js'
 import InputSelect from './InputSelect.js'
 import SubmitButton from './SubmitButton.js';
 
 
-class BaseConversion extends Component {
+class ComplementCalculator extends Component {
   constructor(props){
     super(props);
     this.state = {
@@ -19,9 +19,8 @@ class BaseConversion extends Component {
         return(
         <div className='inputFormContainer mb-5'>
            <form className='inputFormBaseConversion'>
-             <AppName formName="Base Conversion" />
-             <InputSelect inputName = "Convert From" option1 = "Base 2 (binary)" option2 = "base 3 (tertiary)" option3 = "base 4" option4= "Base 5" option5= "Base 10 (decimal)"/>
-             <InputSelect inputName = "Convert To" option1 = "Base 2 (binary)" option2 = "base 3 (tertiary)" option3 = "base 4" option4= "Base 5" option5= "Base 10 (decimal)"/>
+             <AppName formName = "Complement Calculator" />
+             <InputSelect />
              <InputText inputName={this.state.inputName}/>
              <SubmitButton inputName="Convert"/>
            </form>
@@ -35,4 +34,4 @@ class BaseConversion extends Component {
 }
 
 
-export default BaseConversion;
+export default ComplementCalculator;

@@ -28,8 +28,8 @@ class InputSelect extends Component{
 
 render(){
     return(
-      <div class="form-group">
-        <label htmlFor="exampleFormControlSelect2">{this.state.inputName}</label>
+      <div class="form-group mt-2">
+        <label htmlFor="exampleFormControlSelect2">{this.props.inputName}</label>
         <select multiple className="form-control" id="exampleFormControlSelect2">
           <option>{this.state.choice1}</option>
           <option>{this.state.choice2}</option>
