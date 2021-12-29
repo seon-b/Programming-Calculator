@@ -2,7 +2,6 @@ import React,{Component} from 'react';
 import './ComplementCalculator.css'
 import AppName from './AppName';
 import InputText from './InputText.js'
-import InputSelect from './InputSelect.js'
 import SubmitButton from './SubmitButton.js';
 
 
@@ -20,8 +19,9 @@ class ComplementCalculator extends Component {
         <div className='inputFormContainer mb-5'>
            <form className='inputFormBaseConversion'>
              <AppName formName = "Complement Calculator" />
-             <InputSelect />
-             <InputText inputName={this.state.inputName}/>
+             <InputText inputName="Binary Number"/>
+             <InputText inputName="1's Complement"/>
+             <InputText inputName="2's Complement"/>
              <SubmitButton inputName="Convert"/>
            </form>
           

@@ -23,7 +23,7 @@ class InputText extends Component{
       return(
         <div className="form-group mt-2">
            <label for="inputField1">{this.state.inputText}</label>
-           <input type="text" className="form-control" id="inputfield1" placeholder={`${this.state.inputText}`} />
+           <input type="text" className="form-control" id="inputfield1" />
         </div>
 
     )
