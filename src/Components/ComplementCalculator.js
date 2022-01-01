@@ -3,6 +3,7 @@ import './ComplementCalculator.css'
 import AppName from './AppName';
 import InputText from './InputText.js'
 import SubmitButton from './SubmitButton.js';
+import OutputTextArea from './OutputTextArea';
 
 
 class ComplementCalculator extends Component {
@@ -20,8 +21,8 @@ class ComplementCalculator extends Component {
            <form className='inputFormBaseConversion'>
              <AppName formName = "Complement Calculator" />
              <InputText inputName="Binary Number"/>
-             <InputText inputName="1's Complement"/>
-             <InputText inputName="2's Complement"/>
+             <OutputTextArea inputName="1's Complement" />
+             <OutputTextArea inputName="2's Complement"/>
              <SubmitButton inputName="Convert"/>
            </form>
           

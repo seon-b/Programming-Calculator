@@ -12,16 +12,22 @@ class SubmitButton extends Component{
     constructor(props){
     super(props);
     this.state = {
-        inputText: this.props.inputName,
+        submitButtonClicked: false,
+
         
     };
     }
 
+    buttonClicked = () => {
+        this.setState({submitButtonClicked: true});
+       
+    }
+
     render(){
         return(
-            <div className='submitButtonComponent mt-3'> 
-              <button type="button" className="btn btn-primary">{this.state.inputText}</button>
-            </div>
+          <div className='submitButtonComponent mt-3'> 
+            <button type="button" className="btn btn-primary" onClick={this.buttonClicked}>{this.props.inputName}</button>
+          </div>
         );
     }
 }

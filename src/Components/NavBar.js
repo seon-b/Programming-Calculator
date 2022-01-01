@@ -8,7 +8,7 @@ class NavBar extends Component {
           <nav className='navBarStyle'>
               <section className='navBarItem1'>
                   <div className='navBarLogo'>
-                      <button className='btn'><h1><i class="bi bi-calculator"></i><span className='navBarTitleText'>Programming Calculator</span></h1></button>
+                      <button className='btn'><h1><i className="bi bi-calculator"></i><span className='navBarTitleText'>Programming Calculator</span></h1></button>
                   </div>
               </section>
               <section className='navBarItem2'>

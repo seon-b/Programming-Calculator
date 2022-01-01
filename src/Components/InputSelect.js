@@ -12,34 +12,63 @@ class InputSelect extends Component{
         option2: "",
         option3: "",
         option4: "",
-        option5: "",
+        // option5: "",
+        // option6: "",
     }; 
 
     constructor(props){
     super(props);
     this.state = {
-        choice1: this.props.option1,
-        choice2: this.props.option2,
-        choice3: this.props.option3,
-        choice4: this.props.option4,
-        choice5: this.props.option5,
+        selectedChoice1: true,
+        selectedChoice2: false,
+        selectedChoice3: false,
+        selectedChoice4: false,
+        // choice5Selected: this.props.option5,
+        // choice6Selected: this.props.option6,
     };
     }
 
+    // This function sets the state of the selected choice
+    selectAChoice = (e) =>{
+      if(this.props.option1 === e.target.value){
+         this.setState({selectedChoice1: true});
+         console.log(`${this.state.selectedChoice1} choice1 selected`);
+         
+      }
+      if(this.props.option2 === e.target.value){
+         this.setState({selectedChoice2: true});
+         console.log(`${this.state.selectedChoice1} choice2 selected`);
+         
+      }
+      if(this.props.option3 === e.target.value){
+         this.setState({selectedChoice3: true});
+         console.log(`${this.state.selectedChoice1} choice3 selected`);
+         
+      }
+      if(this.props.option4 === e.target.value){
+         this.setState({selectedChoice4: true});
+         console.log(`${this.state.selectedChoice1} choice4 selected`);
+         
+      }
+
+    }
+
+
 render(){
     return(
-      <div class="form-group mt-2">
-        <label htmlFor="exampleFormControlSelect2">{this.props.inputName}</label>
-        <select multiple className="form-control" id="exampleFormControlSelect2">
-          <option>{this.state.choice1}</option>
-          <option>{this.state.choice2}</option>
-          <option>{this.state.choice3}</option>
-          <option>{this.state.choice4}</option>
-          <option>{this.state.choice5}</option>
+      <div className="form-group mt-2">
+        <label htmlFor="selectForm">{this.props.inputName}</label>
+        <select  onChange={this.selectAChoice} className="form-control" id="selectForm">
+          <option id="option1" value={this.props.option1}>{this.props.option1}</option>
+          <option id="option2" value={this.props.option2}>{this.props.option2}</option>
+          <option id="option3" value={this.props.option3}>{this.props.option3}</option>
+          <option id="option4" value={this.props.option4}>{this.props.option4}</option>
+          {/* <option>{this.props.option5}</option>
+          <option>{this.props.option6}</option> */}
         </select>
       </div> 
 
-    )
+    );
 }
 
 

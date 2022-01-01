@@ -37,8 +37,8 @@ class App extends Component{
           buttonState:"default",
           programId: "none",
           programmingCalculator: true,
-          baseConversionApp: false,
-          complementCalculatorApp: false,
+          baseConversionApp: true,
+          complementCalculatorApp: true,
       };
      
     }
@@ -81,12 +81,13 @@ class App extends Component{
     render(){
       return(
         <div className="App container-fluid">
-            <header className="row mb-5">
+          {/* navBar Components  */}
+            <header className="row mb-4">
               {/* <NavBar /> */}
                <nav className='navBarStyle'>
                   <section className='navBarItem1'>
                       <div className='navBarLogo'>
-                          <button id="programmingCalculatorId" className='btn'  onClick={this.displayHomepage}><h1><i class="bi bi-calculator"></i><span className='navBarTitleText'>Programming Calculator</span></h1></button>
+                          <button id="programmingCalculatorId" className='btn'  onClick={this.displayHomepage}><h1><i className="bi bi-calculator"></i><span className='navBarTitleText'>Programming Calculator</span></h1></button>
                       </div>
                   </section>
                   <section className='navBarItem2'>
@@ -96,7 +97,7 @@ class App extends Component{
                   </section>
                   <section className='navBarItem3'>
                       <div className='navBarLink'>
-                        <button id='complementCalculatorApp' className='btn'onClick={this.displayComplementCalculatorApp}> <h2><i class="bi bi-plus-slash-minus"></i>&nbsp;<span className='complementCalculator'>Complement Calculator</span></h2> </button> 
+                        <button id='complementCalculatorApp' className='btn'onClick={this.displayComplementCalculatorApp}> <h2><i className="bi bi-plus-slash-minus"></i>&nbsp;<span className='complementCalculator'>Complement Calculator</span></h2> </button> 
                       </div>
                   </section> 
 
@@ -104,6 +105,7 @@ class App extends Component{
               
             </header>
            <div className='row'>
+             {/* App display area */}
              <div className='col-sm-6' style={{display:(this.state.baseConversionApp?"block":"none")}}>
               
               <div className="deleteIconStyle" onClick={this.removeBaseConversionApp}>
