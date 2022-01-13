@@ -4,6 +4,7 @@ import './Components/NavBar.css'
 import BaseConversion from './Components/BaseConversion';
 import ComplementCalculator from './Components/ComplementCalculator';
 import './Components/DeleteButtonIcon.css'
+import BinaryArithmetic from './Components/BinaryArithmetic';
 // import NavBar from './Components/NavBar.js'
 
 // function App() {
@@ -38,6 +39,7 @@ class App extends Component{
           programId: "none",
           programmingCalculator: true,
           baseConversionApp: true,
+          binaryArithmeticApp: true,
           complementCalculatorApp: true,
       };
      
@@ -65,6 +67,16 @@ class App extends Component{
      removeComplementCalculatorApp = () => { 
          if(this.state.complementCalculatorApp === true) {
           this.setState({complementCalculatorApp: false}); 
+         }
+     }
+     displayBinaryArithmeticApp = () => { 
+         if(this.state.binaryArithmeticApp === false) {
+          this.setState({binaryArithmeticApp: true}); 
+         }
+     }
+     removeBinaryArithmeticApp = () => { 
+         if(this.state.binaryArithmeticApp === true) {
+          this.setState({binaryArithmeticApp: false}); 
          }
      }
 
@@ -97,6 +109,11 @@ class App extends Component{
                   </section>
                   <section className='navBarItem3'>
                       <div className='navBarLink'>
+                          <button id="baseConversionApp" className='btn' onClick={this.displayBinaryArithmeticApp}><h2>2<sup>n&nbsp;</sup><span className='baseConversion'>Binary Arithmetic</span></h2></button>
+                      </div>
+                  </section>
+                  <section className='navBarItem4'>
+                      <div className='navBarLink'>
                         <button id='complementCalculatorApp' className='btn'onClick={this.displayComplementCalculatorApp}> <h2><i className="bi bi-plus-slash-minus"></i>&nbsp;<span className='complementCalculator'>Complement Calculator</span></h2> </button> 
                       </div>
                   </section> 
@@ -106,22 +123,32 @@ class App extends Component{
             </header>
            <div className='row'>
              {/* App display area */}
-             <div className='col-sm-6' style={{display:(this.state.baseConversionApp?"block":"none")}}>
+             <div className='col-sm-4' style={{display:(this.state.baseConversionApp?"block":"none")}}>
               
-              <div className="deleteIconStyle" onClick={this.removeBaseConversionApp}>
-                <div><i className="btn bi bi-x-square"></i></div>
-              </div>
-
-              <BaseConversion/> 
+                <div className="deleteIconStyle" onClick={this.removeBaseConversionApp}>
+                  <div><i className="btn bi bi-x-square"></i></div>
+                </div>
+  
+                <BaseConversion/> 
               
              </div>
-             <div className='col-sm-6' style={{display:(this.state.complementCalculatorApp?"block":"none")}}>
-             
-              <div className="deleteIconStyle" onClick={this.removeComplementCalculatorApp}>
-                <div><i className="btn bi bi-x-square"></i></div>
-              </div>
 
-              <ComplementCalculator />
+             <div className='col-sm-4' style={{display:(this.state.binaryArithmeticApp?"block":"none")}}>
+             
+                <div className="deleteIconStyle" onClick={this.removeBinaryArithmeticApp}>
+                  <div><i className="btn bi bi-x-square"></i></div>
+                </div>
+
+              <BinaryArithmetic />
+                
+             </div>
+             <div className='col-sm-4' style={{display:(this.state.complementCalculatorApp?"block":"none")}}>
+             
+                <div className="deleteIconStyle" onClick={this.removeComplementCalculatorApp}>
+                  <div><i className="btn bi bi-x-square"></i></div>
+                </div>
+
+                <ComplementCalculator />
              
              </div>
              </div>

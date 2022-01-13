@@ -18,12 +18,12 @@ class InputText extends Component{
         
     //   };
     // }
-  
+   
     render(){
       return(
         <div className="form-group mt-2">
            <label htmlFor="inputField1">{this.props.inputName}</label>
-           <input type="text" className="form-control" id="inputfield1" />
+           <input type="text" className="form-control" id="inputfield1" onChange={this.props.handleChange1} />
         </div>
 
     )
