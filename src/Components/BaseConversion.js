@@ -23,6 +23,7 @@ class BaseConversion extends Component {
    
   }
 
+
   // BaseConversionFunction = (numberToConvert,conversionOfNumber) => {
 
   // }

@@ -18,15 +18,15 @@ class SubmitButton extends Component{
     };
     }
 
-    buttonClicked = () => {
-        this.setState({submitButtonClicked: true});
+    submitButtonFunction1 = () => {
+        this.props.handleClick();
        
     }
 
     render(){
         return(
           <div className='submitButtonComponent mt-3'> 
-            <button type="button" className="btn btn-primary" onClick={this.buttonClicked}>{this.props.inputName}</button>
+            <button type="button" className="btn btn-primary" onClick={this.submitButtonFunction1}>{this.props.inputName}</button>
           </div>
         );
     }

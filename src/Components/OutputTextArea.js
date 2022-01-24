@@ -4,7 +4,7 @@ import React,{Component} from 'react';
 class OutputTextArea extends Component {
     static defaultProps = {
         inputName: "",
-        solution: ""
+       
         
     }; 
 
