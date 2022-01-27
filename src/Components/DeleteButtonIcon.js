@@ -24,8 +24,6 @@ class DeleteButtonIcon extends Component{
       return(
         <div className="deleteIconStyle">
            <div><i className="btn bi bi-x-square"></i></div>
-           {/* <label for="inputField1">{this.state.inputText}</label>
-           <input type="text" className="form-control" id="inputfield1" placeholder={`${this.state.inputText}`} /> */}
         </div>
 
     )

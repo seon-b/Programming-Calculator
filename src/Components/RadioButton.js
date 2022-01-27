@@ -7,6 +7,7 @@ class RadioButton extends Component {
         inputName2: "",
         inputName3: "",
         inputName4: "",
+        
        
     }; 
 
@@ -18,6 +19,9 @@ class RadioButton extends Component {
   }
   radioButtonFunction3 = () =>{
       this.props.handleChange3();
+  }
+  radioButtonFunction4 = () =>{
+      this.props.handleChange4();
   }
 
     render(){
@@ -36,6 +40,11 @@ class RadioButton extends Component {
            <div className="form-check form-check-inline">
                <label className="form-check-label" htmlFor="inlineRadio3">{this.props.inputName3}</label>
                <input className="form-check-input" onChange={this.radioButtonFunction3} type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3" />
+               
+            </div>
+           <div className="form-check form-check-inline">
+               <label className="form-check-label" htmlFor="inlineRadio4">{this.props.inputName4}</label>
+               <input className="form-check-input" onChange={this.radioButtonFunction4} type="radio" name="inlineRadioOptions" id="inlineRadio4" value="option4" />
                
             </div>
          </div>

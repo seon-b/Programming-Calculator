@@ -12,8 +12,7 @@ class InputSelect extends Component{
         option2: "",
         option3: "",
         option4: "",
-        // option5: "",
-        // option6: "",
+        
     }; 
 
     constructor(props){
@@ -23,8 +22,7 @@ class InputSelect extends Component{
         selectedChoice2: false,
         selectedChoice3: false,
         selectedChoice4: false,
-        // choice5Selected: this.props.option5,
-        // choice6Selected: this.props.option6,
+       
     };
     }
 
@@ -63,8 +61,6 @@ render(){
           <option id="option2" value={this.props.option2}>{this.props.option2}</option>
           <option id="option3" value={this.props.option3}>{this.props.option3}</option>
           <option id="option4" value={this.props.option4}>{this.props.option4}</option>
-          {/* <option>{this.props.option5}</option>
-          <option>{this.props.option6}</option> */}
         </select>
       </div> 
 

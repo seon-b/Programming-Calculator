@@ -5,38 +5,12 @@ import BaseConversion from './Components/BaseConversion';
 import ComplementCalculator from './Components/ComplementCalculator';
 import './Components/DeleteButtonIcon.css'
 import BinaryArithmetic from './Components/BinaryArithmetic';
-// import NavBar from './Components/NavBar.js'
 
-// function App() {
-//   return (
-//     <div className="App container-fluid">
-//       <header className="row">
-//         <NavBar />
-//       </header>
-//       <div className='row'>
-//         <div className='col-sm-12'>
-//           <BaseConversion />
-          
-      
-//         </div>
-
-//       </div>
-//     </div>
-//   );
-// }
 class App extends Component{
-    // static defaultProps = {
-    //     inputName: "default",
-        
-    //   }; 
-  
 
     constructor(props){
       super(props);
       this.state = {
-          inputText: "default",
-          buttonState:"default",
-          programId: "none",
           programmingCalculator: true,
           baseConversionApp: true,
           binaryArithmeticApp: true,
@@ -83,8 +57,9 @@ class App extends Component{
      displayHomepage = () => {
       if(this.state.programmingCalculator === true) {
         this.setState({programmingCalculator: true,
-                       baseConversionApp: false,
-                       complementCalculatorApp: false,
+                       baseConversionApp: true,
+                       binaryArithmeticApp: true,
+                       complementCalculatorApp: true,
         }); 
        }
 

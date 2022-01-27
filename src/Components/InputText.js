@@ -11,13 +11,7 @@ class InputText extends Component{
       
     }; 
 
-    // constructor(props){
-    //   super(props);
-    //   this.state = {
-    //     inputText: this.props.inputName,
-        
-    //   };
-    // }
+ 
    
     render(){
       return(

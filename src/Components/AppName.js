@@ -28,8 +28,7 @@ class AppName extends Component{
       return(
         <div className="form-group mt-2">
            <h3 className='appNameStyle'>{this.state.inputText}</h3>
-           {/* <label for="inputField1">{this.state.inputText}</label>
-           <input type="text" className="form-control" id="inputfield1" placeholder={`${this.state.inputText}`} /> */}
+           
         </div>
 
     )
