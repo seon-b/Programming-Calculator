@@ -98,9 +98,11 @@ class BaseConversion extends Component {
     num1 = parseInt(inputValue,currentbase);
     if (isNaN(num1)){
     this.setState({BaseConversionOutput: "Error, the conversion does not exist."});
-    }else{
-    this.setState({BaseConversionOutput: num1.toString(convertToBase)});
+    }else if(convertToBase === 16){
+    this.setState({BaseConversionOutput: num1.toString(convertToBase).toUpperCase()});
 
+    }else{
+    this.setState({BaseConversionOutput: num1.toString(convertToBase).toUpperCase()});
     }
 
 

@@ -44,11 +44,12 @@ class BinaryArithmetic extends Component {
   
   // These functions get the InputText component's text input field data and checks that online binary numbers are present
   getInputData1 = (e) =>{
-    this.setState({binaryNumber1: e.target.value, binaryNumber1Length: e.target.value.length});
+    this.setState({binaryNumber1: e.target.value.padStart(8,'0'), binaryNumber1Length: e.target.value.length});
+    console.log(this.state.binaryNumber1);
    
  }
   getInputData2 = (e) =>{
-    this.setState({binaryNumber2: e.target.value, binaryNumber2Length: e.target.value.length})
+    this.setState({binaryNumber2: e.target.value.padStart(8,'0'), binaryNumber2Length: e.target.value.length})
     
  }
 
@@ -126,22 +127,6 @@ class BinaryArithmetic extends Component {
  
  }
 
-
-
- padBits = (num, padLength) =>{
-   if(padLength === 8){
-     num.padStart(padLength,'0');
-     return num;
-   }else if(padLength < 8){
-     let padDiference = 8 - padLength;
-     num.padStart(padDiference,'0');
-     return num;
-   }else{
-
-   }
-
-
- }
 
 
   render(){
