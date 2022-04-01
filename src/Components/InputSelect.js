@@ -30,22 +30,20 @@ class InputSelect extends Component{
     selectAChoice = (e) =>{
       if(this.props.option1 === e.target.value){
          this.setState({selectedChoice1: true});
-         console.log(`${this.state.selectedChoice1} choice1 selected`);
-         
+        
       }
       if(this.props.option2 === e.target.value){
          this.setState({selectedChoice2: true});
-         console.log(`${this.state.selectedChoice1} choice2 selected`);
-         
+         console.log(`${this.state.selectedChoice1} choice2 selected`);  
       }
       if(this.props.option3 === e.target.value){
          this.setState({selectedChoice3: true});
-         console.log(`${this.state.selectedChoice1} choice3 selected`);
+       
          
       }
       if(this.props.option4 === e.target.value){
          this.setState({selectedChoice4: true});
-         console.log(`${this.state.selectedChoice1} choice4 selected`);
+        
          
       }
 

@@ -29,7 +29,7 @@ class RadioButton extends Component {
           <div className='mt-4'>
             <div className="form-check form-check-inline">
                <label className="form-check-label" htmlFor="inlineRadio1">{this.props.inputName1}</label>
-               <input className="form-check-input" onChange={this.radioButtonFunction1} type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" />
+               <input className="form-check-input" onChange={this.radioButtonFunction1} type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1"/>
                
             </div>
             <div className="form-check form-check-inline">

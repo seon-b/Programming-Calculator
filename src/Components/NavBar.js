@@ -16,12 +16,7 @@ class NavBar extends Component {
                       <button className='btn'><h2>X<sup>n&nbsp;</sup><span className='baseConversion'>Base Conversion</span></h2></button>
                   </div>
               </section>
-              {/* <section className='navBarItem3'>
-                  <div className='navBarLink'>
-                      <h2>icon<span className='binaryArithmetic'>Binary Arithmetic</span></h2>
-                  </div>
-              </section> */}
-
+             
           </nav>
         </div>
         );

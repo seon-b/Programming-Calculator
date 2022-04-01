@@ -111,7 +111,7 @@ class App extends Component{
              <div className='col-sm-4' style={{display:(this.state.binaryArithmeticApp?"block":"none")}}>
              
                 <div className="deleteIconStyle" onClick={this.removeBinaryArithmeticApp}>
-                  <div><i className="btn bi bi-x-square"></i></div>
+                  <div><i className="btn bi bi-x-square "></i></div>
                 </div>
 
               <BinaryArithmetic />

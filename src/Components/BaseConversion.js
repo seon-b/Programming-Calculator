@@ -1,14 +1,7 @@
 import React,{Component} from 'react';
 import './BaseConversion.css'
 import AppName from './AppName';
-// import InputText from './InputText.js'
-// import InputSelect from './InputSelect.js'
-//import RadioButton from './RadioButton';
 import SubmitButton from './SubmitButton.js';
-// import OutputTextArea from './OutputTextArea.js'
-// import BaseComponent1 from './BaseComponent1.js';
-// import BaseComponent2 from './BaseComponent2.js';
-
 
 class BaseConversion extends Component {
   constructor(props){
@@ -30,7 +23,6 @@ class BaseConversion extends Component {
   }
 
   selectAChoice1 = (e) =>{
-    console.log("function is working");
     if( "Base 2 (Binary)" === e.target.value){
       this.setState({ baseId1: 2});
    
@@ -86,6 +78,68 @@ class BaseConversion extends Component {
 
   }
 
+  validateBinaryInputs = () =>{
+
+    let isBinaryNumValid = false;
+    let truthVal = 0;
+  
+ 
+ 
+   for(let i = 0; i < this.state.userInput.length; i++){
+     
+     if((this.state.userInput[i] === "1") || (this.state.userInput[i] === "0")){
+       truthVal++;
+     }
+     
+   }
+   if (this.state.binaryNumber.length === truthVal){
+      isBinaryNumValid = true;
+   }
+  
+   
+  
+   if((isBinaryNumValid === true)) {
+     return true;
+   }else{
+     return false;
+   }
+ 
+ 
+  }
+
+
+  validateDecimalInputs = () => {
+    console.log("this function works"); 
+
+    let isNumValid = false;
+    let truthVal = 0;
+  
+ 
+ 
+   for(let i = 0; i < this.state.userInput.length; i++){
+     
+     if((isNaN(this.state.userInput[i])) === false){
+       truthVal++;
+     }
+     
+   }
+   
+   if (this.state.userInput.length === truthVal){
+      isNumValid = true;
+   }
+  
+   
+  
+   if((isNumValid === true)) {
+     return true;
+   }else{
+    
+    return false;
+   }
+ 
+
+  }
+
    
 
   convertInputToSelectedBase = (inputValue, currentbase, convertToBase) =>{
@@ -96,14 +150,37 @@ class BaseConversion extends Component {
     convertToBase = this.state.baseId2;
 
     num1 = parseInt(inputValue,currentbase);
-    if (isNaN(num1)){
-    this.setState({BaseConversionOutput: "Error, the conversion does not exist."});
-    }else if(convertToBase === 16){
-    this.setState({BaseConversionOutput: num1.toString(convertToBase).toUpperCase()});
 
-    }else{
-    this.setState({BaseConversionOutput: num1.toString(convertToBase).toUpperCase()});
-    }
+      if(this.state.userInput.length === 0) {
+        alert("Error, please enter a number");
+      }else{
+        
+        if ((isNaN(num1))) {
+           this.setState({BaseConversionOutput: "Error, the conversion does not exist."});
+        }else if(convertToBase === 16){
+           this.setState({BaseConversionOutput: num1.toString(convertToBase).toUpperCase()});
+
+        }else{
+         if(convertToBase === 2) {
+          //limit binary solutions to 4 to 8 bits
+             if(num1 > 4){
+                this.setState({BaseConversionOutput: num1.toString(convertToBase).padStart(8, "0")});
+             }else{
+               this.setState({BaseConversionOutput: num1.toString(convertToBase).padStart(4,"0")});
+             }
+         }else{
+          let isValidDecimal = this.validateDecimalInputs();
+
+          if(isValidDecimal === true){
+             this.setState({BaseConversionOutput: num1.toString(convertToBase)}); 
+          }else{
+            alert("Error please enter a number");
+          }
+
+         }
+        }
+
+      }
 
 
     }
@@ -113,8 +190,8 @@ class BaseConversion extends Component {
   render(){
    
       return(
-      <div className='inputFormContainer mb-5'>
-         <form className='inputFormBaseConversion'>
+      <div className="inputFormContainer mb-5">
+         <form className="inputFormBaseConversion">
            <AppName formName="Base Conversion" />
 
           <div className="form-group mt-2">

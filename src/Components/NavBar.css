@@ -17,3 +17,15 @@
 .navBarTitleText {
   font-size: 15px;
 }
+
+.btn{
+  outline-color: #ffd6e0;
+}
+.btn:active{
+  border-color: black;
+}
+
+.btn:focus{
+  box-shadow: #ffd6e0;
+
+}
