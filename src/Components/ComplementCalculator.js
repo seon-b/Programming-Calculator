@@ -1,4 +1,4 @@
-import React,{useState} from 'react';
+import React,{useState,useEffect} from 'react';
 import './ComplementCalculator.css'
 import AppName from './AppName';
 import InputText from './InputText.js'
@@ -7,14 +7,15 @@ import SubmitButton from './SubmitButton.js';
 
 const ComplementCalculator = () => {
 
-const [emptyField, setEmptyField] = useState(true);
-const [isBinaryNumValid, setisBinaryNumValid] = useState(false);
-const [binaryNumber, setBinaryNumber] = useState("");
-const [binaryNumberLength, setBinaryNumberLength] = useState(0);
-const [complement1, setComplement1] = useState("");
-const [complement2, setComplement2] = useState("");
-const [isSignedNumber, setisSignedNumber] = useState(false);
-const [isUnsignedNumber, setisUnsignedNumber] = useState(true);
+  const [emptyField, setEmptyField] = useState(true);
+  const [isBinaryNumValid, setisBinaryNumValid] = useState(false);
+  const [binaryNumber, setBinaryNumber] = useState("");
+  const [binaryNumberLength, setBinaryNumberLength] = useState(0);
+  const [complement1, setComplement1] = useState("");
+  const [complement2, setComplement2] = useState("");
+  const [isSignedNumber, setisSignedNumber] = useState(false);
+  const [isUnsignedNumber, setisUnsignedNumber] = useState(true);
+  const [errorStatement, seterrorStatement] = useState("Error!");
 
   const isEmpty = () =>{
       
@@ -127,6 +128,7 @@ const [isUnsignedNumber, setisUnsignedNumber] = useState(true);
         <div className="inputFormContainer mb-5">
            <form className="inputFormBaseConversion">
              <AppName formName = "Complement Calculator" />
+             <div class="alert alert-primary" role="alert">{errorStatement}</div>
              <InputText inputName="Binary Number" handleChange1={getUserInput}/>
              
              <div className='d-flex justify-content-between mt-3'>

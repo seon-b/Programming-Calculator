@@ -29,17 +29,17 @@ class RadioButton extends Component {
           <div className='mt-4'>
             <div className="form-check form-check-inline">
                <label className="form-check-label" htmlFor="inlineRadio1">{this.props.inputName1}</label>
-               <input className="form-check-input" onChange={this.radioButtonFunction1} type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1"/>
+               <input className="form-check-input radioButtonColor" onChange={this.radioButtonFunction1} type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1"/>
                
             </div>
             <div className="form-check form-check-inline">
                <label className="form-check-label" htmlFor="inlineRadio2">{this.props.inputName2}</label>
-               <input className="form-check-input" onChange={this.radioButtonFunction2} type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" />
+               <input className="form-check-input radioButtonColor" onChange={this.radioButtonFunction2} type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" />
                
             </div>
            <div className="form-check form-check-inline">
                <label className="form-check-label" htmlFor="inlineRadio3">{this.props.inputName3}</label>
-               <input className="form-check-input" onChange={this.radioButtonFunction3} type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3" />
+               <input className="form-check-input radioButtonColor" onChange={this.radioButtonFunction3} type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3" />
                
             </div>
            <div className="form-check form-check-inline">
