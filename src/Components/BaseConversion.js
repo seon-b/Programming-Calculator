@@ -9,7 +9,8 @@ const BaseConversion = () =>{
   const [baseId1, setbaseId1] = useState(2);
   const [baseId2, setbaseId2] = useState(2);
   const [baseConversionOutput, setbaseConversionOutput] = useState("");
-  const [errorStatement, seterrorStatement] = useState("Error!");
+  const [errorStatement, seterrorStatement] = useState("");
+  const [isErrorPresent, setisErrorPresent] = useState(false)
   
   const getUserInput = (e) => {
    setuserInput(e.target.value);
@@ -71,111 +72,173 @@ const BaseConversion = () =>{
     }
 
   }
-
+ //regex used to validate inputs limit inputs to 1 bit minimum and 8 bit maximum
   const validateBinaryInputs = () =>{
 
-  //   let isBinaryNumValid = false;
-  //   let truthVal = 0;
+    let regex = /(^[0-1]{1,8})$/;
+
+    const isInputValid1 = regex.test(userInput);
+    
+    
+    if(isInputValid1 === true && baseId1 === 2){
+        return true;
+    }else{
+        return false;
+    }
   
- 
- 
-  //  for(let i = 0; i < userInput.length; i++){
-     
-  //    if((userInput[i] === "1") || (userInput[i] === "0")){
-  //      truthVal++;
-  //    }
-     
-  //  }
-  //  if (binaryNumber.length === truthVal){
-  //     isBinaryNumValid = true;
-  //  }
   
-   
+  }
+
+  const validateOctalInputs = () =>{
+
+    let regex = /(^[0-7]{1,8})$/;
+
+    const isInputValid1 = regex.test(userInput);
+    
+    
+    if(isInputValid1 === true && baseId1 === 8){
+        return true;
+    }else{
+        return false;
+    }
   
-  //  if((isBinaryNumValid === true)) {
-  //    return true;
-  //  }else{
-  //    return false;
-  //  }
- 
- 
+  
   }
 
 
   const validateDecimalInputs = () => {
-    console.log("this function works"); 
+    let regex = /(^[0-9]{1,8})$/;
 
-    let isNumValid = false;
-    let truthVal = 0;
-  
- 
- 
-   for(let i = 0; i < userInput.length; i++){
-     
-     if((isNaN(userInput[i])) === false){
-       truthVal++;
-     }
-     
-   }
-   
-   if (userInput.length === truthVal){
-      isNumValid = true;
-   }
-  
-   
-  
-   if((isNumValid === true)) {
-     return true;
-   }else{
+    const isInputValid1 = regex.test(userInput);
     
-    return false;
-   }
- 
+    
+    if(isInputValid1 === true && baseId1 === 10){
+        return true;
+    }else{
+        return false;
+    }
 
   }
 
+  const validateHexaDecimalInputs = () =>{
+
+    let regex = /(^[0-9a-fA-F]{1,8})$/;
+
+    const isInputValid1 = regex.test(userInput);
+    
+    
+    if(isInputValid1 === true && baseId1 === 16){
+        return true;
+    }else{
+        return false;
+    }
+  
+  
+  }
+  //displays the error message for 1 second
+  const handleError = () =>{
+   if(isErrorPresent === true){
+     setisErrorPresent(false);
+   }else{
+    setisErrorPresent(true);
+    //setTimeout(setisErrorPresent(false),3000);
+  }
+}
+
+  
+  
+ 
+ 
+  
+
    
 
-   const convertInputToSelectedBase = (inputValue, currentbase, convertToBase) =>{
-    let num1 = 0;
-
+   const convertInputToSelectedBase = (inputValue, currentBase, convertToBase) =>{
+  
+ 
+    let isBaseValid;
+    let parsedInput = 0;
+    
     inputValue = userInput;
-    currentbase = baseId1;
+    currentBase = baseId1;
     convertToBase = baseId2;
-
-    num1 = parseInt(inputValue,currentbase);
-
-      if(userInput.length === 0) {
-        alert("Error, please enter a number");
-      }else{
-        
-        if ((isNaN(num1))) {
-           setbaseConversionOutput("Error, the conversion does not exist.");
-        }else if(convertToBase === 16){
-          setbaseConversionOutput(num1.toString(convertToBase).toUpperCase());
-
+    
+    //performs base conversion and formats binary outputs
+    const convert = () => {
+     if(convertToBase === 2){
+        if(userInput.length > 4){//pads 0's to keep binary input 4 to 8 bits.
+           setbaseConversionOutput(parsedInput.toString(convertToBase).padStart(8, "0"));
         }else{
-         if(convertToBase === 2) {
-          //limit binary solutions to 4 to 8 bits
-             if(num1 > 4){
-                setbaseConversionOutput(num1.toString(convertToBase).padStart(8, "0"));
-             }else{
-                setbaseConversionOutput(num1.toString(convertToBase).padStart(4,"0"));
-             }
-         }else{
-          let isValidDecimal = validateDecimalInputs();
-
-          if(isValidDecimal === true){
-             setbaseConversionOutput(num1.toString(convertToBase)); 
-          }else{
-            alert("Error please enter a number");
-          }
-
-         }
+           setbaseConversionOutput(parsedInput.toString(convertToBase).padStart(4,"0"));
         }
-      }
+  
+     }else if (convertToBase === 16){
+        setbaseConversionOutput(parsedInput.toString(convertToBase).toUpperCase());
+     }else if ((convertToBase !== 2) && (convertToBase !== 16)){
+        setbaseConversionOutput(parsedInput.toString(convertToBase));
+    }else{
 
     }
+  
+    }
+
+ 
+
+    parsedInput = parseInt(inputValue,currentBase);//converts userInput value to a string type
+
+    if (currentBase === 2){
+      isBaseValid = validateBinaryInputs();
+
+      
+
+      if (isBaseValid === true){
+
+        convert();
+     
+    }else{
+      seterrorStatement("Error,please enter a valid binary number");
+      handleError();
+    }
+
+    }else if (currentBase === 8){
+      isBaseValid = validateOctalInputs();
+      
+      if (isBaseValid === true){
+        convert();
+       
+      }else{
+        seterrorStatement("Error, please enter a valid octal number");
+        handleError();
+      }
+
+    }else if (currentBase === 10){
+      isBaseValid = validateDecimalInputs();
+
+      if (isBaseValid === true){
+        convert();
+       
+      }else{
+        seterrorStatement("Error, please enter a valid decimal number");
+        handleError();
+      }
+
+    }else if (currentBase === 16){   
+      isBaseValid = validateHexaDecimalInputs();
+
+      if (isBaseValid === true){
+        convert();
+        
+      }else{
+        seterrorStatement("Error, please enter a valid hexadecimal number");
+        handleError();
+      }
+
+    }else{
+      seterrorStatement("Error, please enter a valid number");
+      handleError();
+    }
+   
+  }
 
 
     
@@ -187,7 +250,7 @@ const BaseConversion = () =>{
       <div className="inputFormContainer mb-5">
          <form className="inputFormBaseConversion">
            <AppName formName="Base Conversion" />
-           <div class="alert alert-primary" role="alert">{errorStatement}</div>
+           <div className="alert alert-primary" style={{display:(isErrorPresent?"block":"none")}} role="alert">{errorStatement}</div>
 
           <div className="form-group mt-2">
             <label htmlFor="selectForm">Convert From</label>
