@@ -197,6 +197,7 @@ const BaseConversion = () =>{
      
     }else{
       seterrorStatement("Error,please enter a valid binary number");
+      setbaseConversionOutput("");
       handleError();
     }
 
@@ -208,6 +209,7 @@ const BaseConversion = () =>{
        
       }else{
         seterrorStatement("Error, please enter a valid octal number");
+        setbaseConversionOutput("");
         handleError();
       }
 
@@ -219,6 +221,7 @@ const BaseConversion = () =>{
        
       }else{
         seterrorStatement("Error, please enter a valid decimal number");
+        setbaseConversionOutput("");
         handleError();
       }
 
@@ -230,11 +233,13 @@ const BaseConversion = () =>{
         
       }else{
         seterrorStatement("Error, please enter a valid hexadecimal number");
+        setbaseConversionOutput("");
         handleError();
       }
 
     }else{
       seterrorStatement("Error, please enter a valid number");
+      setbaseConversionOutput("");
       handleError();
     }
    

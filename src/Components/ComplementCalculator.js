@@ -7,139 +7,118 @@ import SubmitButton from './SubmitButton.js';
 
 const ComplementCalculator = () => {
 
-  const [emptyField, setEmptyField] = useState(true);
-  const [isBinaryNumValid, setisBinaryNumValid] = useState(false);
   const [binaryNumber, setBinaryNumber] = useState("");
   const [binaryNumberLength, setBinaryNumberLength] = useState(0);
   const [complement1, setComplement1] = useState("");
   const [complement2, setComplement2] = useState("");
-  const [isSignedNumber, setisSignedNumber] = useState(false);
-  const [isUnsignedNumber, setisUnsignedNumber] = useState(true);
   const [errorStatement, seterrorStatement] = useState("Error!");
+  const [isErrorPresent, setisErrorPresent] = useState(false);
 
-  const isEmpty = () =>{
-      
-        if(binaryNumberLength === 0){
-          setEmptyField(true);
-        }else{
-          setEmptyField(false);
-        }
-        
-      
-  }
+  
 
   const getUserInput = (e) =>{
     
-    isEmpty();
   
-      if(isSignedNumber === false){
-        setBinaryNumber(e.target.value.padStart(8,'0'));
+        setBinaryNumber(e.target.value);
         setBinaryNumberLength(binaryNumber.length);
-      }else{
-        setBinaryNumber(e.target.value.padStart(8,'1'));
-        setBinaryNumberLength(binaryNumber.length);
-      }
-     console.log(binaryNumber)
+        
+        if(binaryNumber === 0){
+          setComplement1("00000000");
+          setComplement2("00000000");
+
+        }
+      
+   
     
   }
 
-  const validateInputs = () =>{
+  const validateBinaryInputs = () =>{
 
-    let truthVal = 0;
-  
- 
- 
-    for(let i = 0; i < binaryNumber.length; i++){
-      
-      if((binaryNumber[i] === "1") || (binaryNumber[i] === "0")){
-        truthVal++;
-      }
-      
-    }
+    let regex = /(^[0-1]{1,8})$/;
+
+    const isInputValid1 = regex.test(binaryNumber);
     
-    if (binaryNumber.length === truthVal){
-       setisBinaryNumValid(true);
+    
+    if(isInputValid1 === true){
+        return true;
+    }else{
+        return false;
     }
-   
-   
+  
   
   }
+  
 
   const calculateComplements = () => {
-
   
-
-  // if ((emptyField === true)){
-  //     alert("Error, Please enter a binary number")
-  // }else{
     let binaryNumberArray = [];
     let binaryNumberInverse = "";
+    
+    
+    
+    
+    let isBinaryNumValid = validateBinaryInputs();
 
-   
-
-    validateInputs();
 
     if(isBinaryNumValid === true) {
-      for(let i = 0; i < binaryNumber.length; i++){
-        if(binaryNumber[i] === "0"){
+      //formats the binary output to displat an 8-bit value
+      let formatBinaryNumber;
+      formatBinaryNumber = binaryNumber.padStart(8,'0');
+   
+      
+      for(let i = 0; i < formatBinaryNumber.length; i++){
+        if(formatBinaryNumber[i] === "0"){
             binaryNumberArray.push("1");
-        }else if(binaryNumber[i] === "1"){
+        }else if(formatBinaryNumber[i] === "1"){
             binaryNumberArray.push("0")
         }else{
      
         }
       }
+      
      }else{
-      alert("Invalid character please enter 1s or 0s for binary input fields");
+      seterrorStatement("Error, please enter a valid binary number");
+      //reset output fields
+      setComplement1("");
+      setComplement2("");
+      handleError();
     }
+    
+    if (binaryNumber.length === 0 ){
 
-    console.log(isSignedNumber);
+    }else{
     binaryNumberInverse = binaryNumberArray.join("");  
     let binaryNumberInverseSum = ((parseInt(binaryNumberInverse,2)) + (parseInt("1",2)));
 
     setComplement1(binaryNumberInverse);
     setComplement2(binaryNumberInverseSum.toString(2));
-  }
-
-  
-     
-
-  const selectSignedNumberType = () => {
-   
-      setisSignedNumber(true);
-      setisUnsignedNumber(false);
     
-     console.log(isSignedNumber);
-    
-  }
-
-
- const selectUnsignedNumberType = () => {
- 
-    setisSignedNumber(false);
-    setisUnsignedNumber(true);
- 
-   console.log(isUnsignedNumber);
-   
     }
+  }
+
+
+       
+  const handleError = () =>{
+      if(isErrorPresent === true){
+        setisErrorPresent(false);
+      }else{
+        setisErrorPresent(true);
+       //setTimeout(setisErrorPresent(false),3000);
+     }
+   }
+   
 
   
         return(
         <div className="inputFormContainer mb-5">
            <form className="inputFormBaseConversion">
              <AppName formName = "Complement Calculator" />
-             <div class="alert alert-primary" role="alert">{errorStatement}</div>
+             <div className="alert alert-primary" style={{display:(isErrorPresent?"block":"none")}} role="alert">{errorStatement}</div>
+
              <InputText inputName="Binary Number" handleChange1={getUserInput}/>
              
              <div className='d-flex justify-content-between mt-3'>
-             <div className="form-check">
-                <input className="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" onClick={selectUnsignedNumberType} />
-                <label className="form-check-label" htmlFor="flexRadioDefault1">Unsigned Number</label>
-             </div>
-             <div className="form-check">
-               <input className="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" onClick={selectSignedNumberType}/>
-               <label className="form-check-label" htmlFor="flexRadioDefault2">Signed Number</label>
-             </div>
+           
              </div>
             <div className='mt-3'>  
              <div className="form-group">

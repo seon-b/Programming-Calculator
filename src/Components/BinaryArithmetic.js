@@ -22,7 +22,8 @@ const BinaryArithmetic = () => {
   const [answerType, setanswerType] = useState("");
   const [negativeDifference, setnegativeDifference] = useState("");
   const [negativeAnswer, setnegativeAnswer] = useState("");
-  const [errorStatement, seterrorStatement] = useState("Error!");
+  const [errorStatement, seterrorStatement] = useState("");
+  const [isErrorPresent, setisErrorPresent] = useState(false);
   
  
   // These functions are passed as props to modify the text in the SubmitButton
@@ -71,6 +72,7 @@ const BinaryArithmetic = () => {
       //this.setState({binaryNumber1: e.target.value.padStart(8,'0'), binaryNumber1Length: e.target.value.length});
       setbinaryNumber1(e.target.value);
       setbinaryNumber1Length(e.target.value.length);
+      console.log(binaryNumber1," " + binaryNumber2);
   }
 
   const getInputData2 = (e) =>{
@@ -80,8 +82,8 @@ const BinaryArithmetic = () => {
     
   }
 
-  const validateInputs = () =>{
-    let regex = /[^0-1]/g;
+  const validateBinaryInputs = () =>{
+    let regex = /(^[0-1]{1,8})$/;
 
     const isInputValid1 = regex.test(binaryNumber1);
     const isInputValid2 = regex.test(binaryNumber2);
@@ -91,73 +93,150 @@ const BinaryArithmetic = () => {
     }else{
         return false;
     }
-  
-
-  //  let isBinaryNum1Valid = false;
-  //  let isBinaryNum2Valid = false;
-  //  let truthVal1 = 0;
-  //  let truthVal2 = 0;
-
-
-  // for(let i = 0; i < this.state.binaryNumber1.length; i++){
-    
-  //   if((this.state.binaryNumber1[i] === "1") || (this.state.binaryNumber1[i] === "0")){
-  //     truthVal1++;
-  //   }
-    
-  // }
-  // if (this.state.binaryNumber1.length === truthVal1){
-  //    isBinaryNum1Valid = true;
-  // }
- 
-  // for(let j = 0; j < this.state.binaryNumber2.length; j++){
-   
-  //   if((this.state.binaryNumber2[j] === "1") || (this.state.binaryNumber2[j] === "0")){
-  //     truthVal2++;
-  //   }
-    
-  // }
-  // if (this.state.binaryNumber2.length === truthVal2){
-  //    isBinaryNum2Valid = true;
-  // }
- 
-  // if((isBinaryNum1Valid === true) && (isBinaryNum2Valid === true)) {
-  //   return true;
-  // }else{
-  //   return false;
-  // }
-
 
    }
 
- //This function executes the selected operation
-  const calculate = () => {
-    
-   if ((binaryNumber1.length === 0) || (binaryNumber2.length === 0)){
-     alert("Error, Please enter a binary number in both input fields")
-   }else{
-     let isValid = false;
-   
-     isValid = this.validateInputs();
-      
-     if (isValid === true){
-      if(setselectedOperator === "Add") {
-         addBinaryNumber();
-      }else if(setselectedOperator === "Subtract") {
-         subtractBinaryNumber();
-      }else if(setselectedOperator === "Multiply"){
-         multiplyBinaryNumber();
-      }else if(setselectedOperator === "Divide"){
-         divideBinaryNumber();
-      }else{
+   const handleError = () =>{
+    if(isErrorPresent === true){
+      setisErrorPresent(false);
+    }else{
+      setisErrorPresent(true);
+     //setTimeout(setisErrorPresent(false),3000);
+   }
+ }
+ 
 
+   //Each function performs the indicated operation in binary and converts the answer into a string and sets the state of the answer,
+ //and answerLength
+
+  const addBinaryNumber = () =>{
+  
+    
+    let num1 = parseInt(binaryNumber1, 2);
+    let num2 = parseInt(binaryNumber2, 2);
+    let sumStr = "";
+    
+  
+    let sum = num1 + num2;
+    sumStr = sum.toString(2);
+    setanswerLength(sumStr.length);
+    if (sumStr.length > 4){
+      setanswer(sumStr.padStart(8,"0"));
+    }else{
+      setanswer(sumStr.padStart(4,"0"));
+    }
+  
+   
+ 
+   
+   }
+  
+   const subtractBinaryNumber = () =>{
+    
+    let num1 = parseInt(binaryNumber1, 2);
+    let num2 = parseInt(binaryNumber2, 2);
+    let differenceStr = "";
+    
+  
+    let difference = num1 - num2;
+    
+    if (difference < 0){
+    //represents a negative difference in 2's complement
+      difference = difference * -1;
+    
+      differenceStr = difference.toString(2).padStart(8,"0");
+      console.log(differenceStr);
+      calculateComplements();
+   
+      //this.setState({answerLength: this.state.negativeDifference.length, negativeDifference: differenceStr, answerType: "negative", negativeAnswer:"The difference is negative and is represented in 2's complement:".concat(" ", this.state.answer),});
+      setanswerLength(differenceStr.length);
+      setnegativeDifference(differenceStr);
+      setanswerType("negative");
+      setnegativeAnswer("The difference is negative and is represented in 2's complement:".concat(" ", answer));
+      
+    }else{
+      differenceStr = difference.toString(2);
+      
+      setanswerLength(differenceStr.length)
+      if (differenceStr.length > 4){
+        setanswer(differenceStr.padStart(8,"0"));
+      }else{
+        setanswer(differenceStr.padStart(4,"0"));
       }
     
-     }else{
-     alert("Invalid character please enter 1s or 0s for binary input fields");
-     }
+     
     }
+   
+   }
+  
+   const multiplyBinaryNumber = () =>{
     
+    let num1 = parseInt(binaryNumber1, 2);
+    let num2 = parseInt(binaryNumber2, 2);
+    let productStr = "";
+    
+  
+    let product = num1 * num2;
+    productStr = product.toString(2);
+    setanswerLength(productStr.length);
+    
+    if (productStr.length > 4){
+      setanswer(productStr.padStart(8,"0"));
+    }else{
+      setanswer(productStr.padStart(4,"0"));
+    }
+  
+   
+   }
+  
+   const divideBinaryNumber = () =>{
+    
+    let num1 = parseInt(binaryNumber1, 2);
+    let num2 = parseInt(binaryNumber2, 2);
+    let quotientStr = "";
+    
+  
+    let quotient = num1 / num2;
+    quotientStr = Math.floor(quotient).toString(2);
+    setanswerLength(quotientStr.length);
+    if (quotientStr.length > 4){
+      setanswer(quotientStr.padStart(8,"0"));
+    }else{
+      setanswer(quotientStr.padStart(4,"0"));
+    }
+  
+   
+  
+   
+   }
+  
+ //This function executes the selected operation
+  const calculate = () => {
+
+    let areInputsValid = false;
+    areInputsValid = validateBinaryInputs();
+    
+    console.log(areInputsValid);
+
+   if (areInputsValid === true){
+      if(selectedOperator === "Add") {
+        addBinaryNumber();
+      }else if(selectedOperator === "Subtract") {
+        subtractBinaryNumber();
+      }else if(selectedOperator === "Multiply"){
+        multiplyBinaryNumber();
+      }else if(selectedOperator === "Divide"){
+        divideBinaryNumber();
+      }else{
+
+     }
+    
+    
+   }else{
+     seterrorStatement("Error, Please enter a valid binary number in both input fields");
+     setanswer("");
+     handleError();
+   } 
   }
  
  const calculateComplements = () =>{
@@ -174,93 +253,19 @@ const BinaryArithmetic = () => {
     }else{
 
     }
+    
 }
 
  binaryNumberInverse = binaryNumberArray.join("");  
  let binaryNumberInverseSum = ((parseInt(binaryNumberInverse,2)) + (parseInt("1",2)));
- setanswer(binaryNumberInverseSum.toString(2));
+ let tempVal;
+ tempVal = binaryNumberInverseSum.toString(2);
+ let signedNumberOutput = tempVal.replace("1","[1]");
+ 
+ setanswer(`Answer Negative: ${signedNumberOutput}`);
 
 }
- //Each function performs the indicated operation in binary and converts the answer into a string and sets the state of the answer,
- //and answerLength
-
-  const addBinaryNumber = () =>{
-  
-  let num1 = parseInt(binaryNumber1, 2);
-  let num2 = parseInt(binaryNumber2, 2);
-  let sumStr = "";
-  
-
-  let sum = num1 + num2;
-  sumStr = sum.toString(2);
-  setanswerLength(sumStr.length);
-  setanswer(sumStr);
-
  
- }
-
- const subtractBinaryNumber = () =>{
-  
-  let num1 = parseInt(binaryNumber1, 2);
-  let num2 = parseInt(binaryNumber2, 2);
-  let differenceStr = "";
-  
-
-  let difference = num1 - num2;
-  
-  if (difference < 0){
-  //represents a negative difference in 2's complement
-    difference = difference * -1;
-  
-    differenceStr = difference.toString(2).padStart(8,"0");
-    console.log(differenceStr);
-    calculateComplements();
- 
-    //this.setState({answerLength: this.state.negativeDifference.length, negativeDifference: differenceStr, answerType: "negative", negativeAnswer:"The difference is negative and is represented in 2's complement:".concat(" ", this.state.answer),});
-    setanswerLength(negativeDifference.length);
-    setnegativeDifference(differenceStr);
-    setanswerType("negative");
-    setnegativeAnswer("The difference is negative and is represented in 2's complement:".concat(" ", answer));
-    
-  }else{
-    differenceStr = difference.toString(2);
-    
-    setanswerLength(differenceStr.length)
-    setanswer(differenceStr);
-  }
- 
- }
-
- const multiplyBinaryNumber = () =>{
-  
-  let num1 = parseInt(binaryNumber1, 2);
-  let num2 = parseInt(binaryNumber2, 2);
-  let productStr = "";
-  
-
-  let product = num1 * num2;
-  productStr = product.toString(2);
-  setanswerLength(productStr.length);
-  setanswer(productStr);
-
- 
- }
-
- const divideBinaryNumber = () =>{
-  
-  let num1 = parseInt(binaryNumber1, 2);
-  let num2 = parseInt(binaryNumber2, 2);
-  let quotientStr = "";
-  
-
-  let quotient = num1 / num2;
-  quotientStr = quotient.toString(2);
-  setanswerLength(quotientStr.length);
-  setanswer(quotientStr);
-
- 
- }
-
 
 
  
@@ -269,7 +274,8 @@ const BinaryArithmetic = () => {
       <div className="inputFormContainer mb-5">
          <form className="inputFormBaseConversion">
            <AppName formName="Binary Arithmetic" />
-           <div class="alert alert-primary" role="alert">{errorStatement}</div>
+           <div className="alert alert-primary" style={{display:(isErrorPresent?"block":"none")}} role="alert">{errorStatement}</div>
+
            <div className="form-group mt-2">
              <label htmlFor="inputField1">Binary Number</label>
              <input type="text" className="form-control" id="inputfield1" onChange={getInputData1} />
