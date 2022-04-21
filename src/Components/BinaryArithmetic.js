@@ -97,13 +97,16 @@ const BinaryArithmetic = () => {
    }
 
    const handleError = () =>{
-    if(isErrorPresent === true){
-      setisErrorPresent(false);
-    }else{
       setisErrorPresent(true);
-     //setTimeout(setisErrorPresent(false),3000);
+       
    }
- }
+
+//Displays error message and removes it after a few seconds
+ useEffect(() =>{
+   
+  setTimeout(() =>{setisErrorPresent(false)},3000);
+ 
+ },[isErrorPresent])
  
 
    //Each function performs the indicated operation in binary and converts the answer into a string and sets the state of the answer,
@@ -205,9 +208,6 @@ const BinaryArithmetic = () => {
       setanswer(quotientStr.padStart(4,"0"));
     }
   
-   
-  
-   
    }
   
  //This function executes the selected operation
@@ -233,7 +233,7 @@ const BinaryArithmetic = () => {
     
     
    }else{
-     seterrorStatement("Error, Please enter a valid binary number in both input fields");
+     seterrorStatement("Error, invalid binary number");
      setanswer("");
      handleError();
    } 

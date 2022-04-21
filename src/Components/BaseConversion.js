@@ -1,4 +1,4 @@
-import React,{useState} from 'react';
+import React,{useState,useEffect} from 'react';
 import './BaseConversion.css'
 import AppName from './AppName';
 import SubmitButton from './SubmitButton.js';
@@ -137,13 +137,16 @@ const BaseConversion = () =>{
   }
   //displays the error message for 1 second
   const handleError = () =>{
-   if(isErrorPresent === true){
-     setisErrorPresent(false);
-   }else{
     setisErrorPresent(true);
-    //setTimeout(setisErrorPresent(false),3000);
-  }
-}
+     
+ }
+
+  //Displays error message and removes it after a few seconds
+  useEffect(() =>{
+   
+  setTimeout(() =>{setisErrorPresent(false)},3000);
+  
+  },[isErrorPresent])
 
   
   
@@ -196,7 +199,7 @@ const BaseConversion = () =>{
         convert();
      
     }else{
-      seterrorStatement("Error,please enter a valid binary number");
+      seterrorStatement("Error, invalid binary number");
       setbaseConversionOutput("");
       handleError();
     }
@@ -208,7 +211,7 @@ const BaseConversion = () =>{
         convert();
        
       }else{
-        seterrorStatement("Error, please enter a valid octal number");
+        seterrorStatement("Error, invalid octal number");
         setbaseConversionOutput("");
         handleError();
       }
@@ -220,7 +223,7 @@ const BaseConversion = () =>{
         convert();
        
       }else{
-        seterrorStatement("Error, please enter a valid decimal number");
+        seterrorStatement("Error, invalid decimal number");
         setbaseConversionOutput("");
         handleError();
       }
@@ -232,7 +235,7 @@ const BaseConversion = () =>{
         convert();
         
       }else{
-        seterrorStatement("Error, please enter a valid hexadecimal number");
+        seterrorStatement("Error, invalid hexadecimal number");
         setbaseConversionOutput("");
         handleError();
       }

@@ -77,7 +77,7 @@ const ComplementCalculator = () => {
       }
       
      }else{
-      seterrorStatement("Error, please enter a valid binary number");
+      seterrorStatement("Error, invalid binary number");
       //reset output fields
       setComplement1("");
       setComplement2("");
@@ -97,16 +97,18 @@ const ComplementCalculator = () => {
   }
 
 
-       
   const handleError = () =>{
-      if(isErrorPresent === true){
-        setisErrorPresent(false);
-      }else{
-        setisErrorPresent(true);
-       //setTimeout(setisErrorPresent(false),3000);
-     }
-   }
-   
+    setisErrorPresent(true);
+     
+  }
+
+//Displays error message and removes it after a few seconds
+useEffect(() =>{
+ 
+  setTimeout(() =>{setisErrorPresent(false)},3000);
+
+},[isErrorPresent])
+
 
   
         return(
