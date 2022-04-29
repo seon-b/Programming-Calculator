@@ -2,9 +2,11 @@ import React,{Component} from 'react';
 import './App.css';
 import './Components/NavBar.css'
 import BaseConversion from './Components/BaseConversion';
+import './Components/BaseConversion.css';
 import ComplementCalculator from './Components/ComplementCalculator';
 import './Components/DeleteButtonIcon.css'
 import BinaryArithmetic from './Components/BinaryArithmetic';
+
 
 class App extends Component{
 
@@ -24,6 +26,8 @@ class App extends Component{
      displayBaseConversionApp = () => { 
       if(this.state.baseConversionApp === false) {
         this.setState({baseConversionApp: true}); 
+       }else{
+         this.setState({baseConversionApp: false})
        }
      }
 
@@ -36,7 +40,9 @@ class App extends Component{
      displayComplementCalculatorApp = () => { 
          if(this.state.complementCalculatorApp === false) {
           this.setState({complementCalculatorApp: true}); 
-         }
+         }else{
+          this.setState({complementCalculatorApp: false})
+        }
      }
      removeComplementCalculatorApp = () => { 
          if(this.state.complementCalculatorApp === true) {
@@ -46,7 +52,9 @@ class App extends Component{
      displayBinaryArithmeticApp = () => { 
          if(this.state.binaryArithmeticApp === false) {
           this.setState({binaryArithmeticApp: true}); 
-         }
+         }else{
+          this.setState({binaryArithmeticApp: false})
+        }
      }
      removeBinaryArithmeticApp = () => { 
          if(this.state.binaryArithmeticApp === true) {
@@ -67,10 +75,10 @@ class App extends Component{
 
     render(){
       return(
-        <div className="App container-fluid">
-          {/* navBar Components  */}
+        <div className="App container">
+         
             <header className="row mb-4">
-              {/* <NavBar /> */}
+             
                <nav className='navBarStyle'>
                   <section className='navBarItem1'>
                       <div className='navBarLogo'>
@@ -97,34 +105,36 @@ class App extends Component{
               
             </header>
            <div className='row'>
-             {/* App display area */}
-             <div className='col-sm-4' style={{display:(this.state.baseConversionApp?"block":"none")}}>
+    
+             <div className='col-sm-4' >
               
-                <div className="deleteIconStyle" onClick={this.removeBaseConversionApp}>
+               
+                <div className="inputFormContainer mb-5" style={{display:(this.state.baseConversionApp?"block":"none")}}>
+                   <div className="deleteIconStyle" onClick={this.removeBaseConversionApp}>
                   <div><i className="btn bi bi-x-square"></i></div>
                 </div>
-  
                 <BaseConversion/> 
-              
+                </div>
              </div>
 
-             <div className='col-sm-4' style={{display:(this.state.binaryArithmeticApp?"block":"none")}}>
+             <div className='col-sm-4' >
              
-                <div className="deleteIconStyle" onClick={this.removeBinaryArithmeticApp}>
+                
+                <div className="inputFormContainer mb-5" style={{display:(this.state.binaryArithmeticApp?"block":"none")}}>
+                  <div className="deleteIconStyle" onClick={this.removeBinaryArithmeticApp}>
                   <div><i className="btn bi bi-x-square "></i></div>
                 </div>
-
-              <BinaryArithmetic />
-                
+                  <BinaryArithmetic />
+                </div>
              </div>
-             <div className='col-sm-4' style={{display:(this.state.complementCalculatorApp?"block":"none")}}>
-             
+             <div className='col-sm-4' >
+               
+                <div className="inputFormContainer mb-5" style={{display:(this.state.complementCalculatorApp?"block":"none")}}> 
                 <div className="deleteIconStyle" onClick={this.removeComplementCalculatorApp}>
                   <div><i className="btn bi bi-x-square"></i></div>
                 </div>
-
                 <ComplementCalculator />
-             
+                </div>
              </div>
              </div>
           </div>

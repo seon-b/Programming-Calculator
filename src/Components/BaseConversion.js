@@ -144,7 +144,7 @@ const BaseConversion = () =>{
   //Displays error message and removes it after a few seconds
   useEffect(() =>{
    
-  setTimeout(() =>{setisErrorPresent(false)},3000);
+  setTimeout(() =>{setisErrorPresent(false)},2000);
   
   },[isErrorPresent])
 
@@ -255,7 +255,7 @@ const BaseConversion = () =>{
   
    
     return(
-      <div className="inputFormContainer mb-5">
+      
          <form className="inputFormBaseConversion">
            <AppName formName="Base Conversion" />
            <div className="alert alert-primary" style={{display:(isErrorPresent?"block":"none")}} role="alert">{errorStatement}</div>
@@ -297,7 +297,7 @@ const BaseConversion = () =>{
 
            <SubmitButton inputName="Convert" handleClick={convertInputToSelectedBase}/>
          </form>
-      </div>
+     
       );
  
   }

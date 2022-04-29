@@ -1,5 +1,6 @@
 /* This component applies the style of the navBar to the NavBar component */
 
+
 .baseConversion {
   font-size: 15px;
 }
@@ -12,10 +13,13 @@
   justify-content: space-around;
   align-items: center;
   font-size: 15px;
+  font-family: 'Domine', serif; 
+  
 }
 
 .navBarTitleText {
-  font-size: 15px;
+  font-size: 20px;
+  font-weight: 600;
 }
 
 .btn{

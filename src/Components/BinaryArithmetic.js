@@ -21,14 +21,13 @@ const BinaryArithmetic = () => {
   const [answerLength, setanswerLength] = useState(8);
   const [answerType, setanswerType] = useState("");
   const [negativeDifference, setnegativeDifference] = useState("");
-  const [negativeAnswer, setnegativeAnswer] = useState("");
   const [errorStatement, seterrorStatement] = useState("");
   const [isErrorPresent, setisErrorPresent] = useState(false);
   
  
   // These functions are passed as props to modify the text in the SubmitButton
   const changeSubmitButton1 = () =>{
-    //this.setState({selectedOperator:"Add", answerName: "Sum", selectedRadioInput1: true, selectedRadioInput2: false, selectedRadioInput3: false,selectedRadioInput4: false,})
+   
     setselectedOperator("Add");
     setanswerName("Sum");
     setselectedRadioInput1(true);
@@ -38,7 +37,7 @@ const BinaryArithmetic = () => {
   }
 
  const changeSubmitButton2 = () =>{
-    //this.setState({selectedOperator:"Subtract", answerName: "Difference", selectedRadioInput1: false, selectedRadioInput2: true, selectedRadioInput3: false,selectedRadioInput4: false,})
+    
     setselectedOperator("Subtract");
     setanswerName("Difference");
     setselectedRadioInput1(false);
@@ -48,7 +47,7 @@ const BinaryArithmetic = () => {
   }
 
   const changeSubmitButton3 = () =>{
-    //this.setState({selectedOperator:"Multiply", answerName: "Product", selectedRadioInput1: false, selectedRadioInput2: false, selectedRadioInput3: true,selectedRadioInput4: false,})
+  
     setselectedOperator("Multiply");
     setanswerName("Product");
     setselectedRadioInput1(false);
@@ -58,7 +57,7 @@ const BinaryArithmetic = () => {
   }
 
   const changeSubmitButton4 = () =>{
-    //this.setState({selectedOperator:"Divide", answerName: "Quotient", selectedRadioInput1: false, selectedRadioInput2: false, selectedRadioInput3: false,selectedRadioInput4: true,})
+   
     setselectedOperator("Divide");
     setanswerName("Quotient");
     setselectedRadioInput1(false);
@@ -67,20 +66,20 @@ const BinaryArithmetic = () => {
     setselectedRadioInput4(true);
   }
   
-  // These functions get the InputText component's text input field data and checks that only binary numbers are present
+  
   const getInputData1 = (e) =>{
-      //this.setState({binaryNumber1: e.target.value.padStart(8,'0'), binaryNumber1Length: e.target.value.length});
+      
       setbinaryNumber1(e.target.value);
       setbinaryNumber1Length(e.target.value.length);
-      console.log(binaryNumber1," " + binaryNumber2);
+     
   }
 
   const getInputData2 = (e) =>{
-      //this.setState({binaryNumber2: e.target.value.padStart(8,'0'), binaryNumber2Length: e.target.value.length});
       setbinaryNumber2(e.target.value);
       setbinaryNumber2Length(e.target.value.length);
     
   }
+
 
   const validateBinaryInputs = () =>{
     let regex = /(^[0-1]{1,8})$/;
@@ -104,7 +103,7 @@ const BinaryArithmetic = () => {
 //Displays error message and removes it after a few seconds
  useEffect(() =>{
    
-  setTimeout(() =>{setisErrorPresent(false)},3000);
+  setTimeout(() =>{setisErrorPresent(false)},2000);
  
  },[isErrorPresent])
  
@@ -148,14 +147,11 @@ const BinaryArithmetic = () => {
       difference = difference * -1;
     
       differenceStr = difference.toString(2).padStart(8,"0");
-      console.log(differenceStr);
       calculateComplements();
-   
-      //this.setState({answerLength: this.state.negativeDifference.length, negativeDifference: differenceStr, answerType: "negative", negativeAnswer:"The difference is negative and is represented in 2's complement:".concat(" ", this.state.answer),});
+
       setanswerLength(differenceStr.length);
       setnegativeDifference(differenceStr);
-      setanswerType("negative");
-      setnegativeAnswer("The difference is negative and is represented in 2's complement:".concat(" ", answer));
+     
       
     }else{
       differenceStr = difference.toString(2);
@@ -216,7 +212,7 @@ const BinaryArithmetic = () => {
     let areInputsValid = false;
     areInputsValid = validateBinaryInputs();
     
-    console.log(areInputsValid);
+   
 
    if (areInputsValid === true){
       if(selectedOperator === "Add") {
@@ -258,9 +254,9 @@ const BinaryArithmetic = () => {
 
  binaryNumberInverse = binaryNumberArray.join("");  
  let binaryNumberInverseSum = ((parseInt(binaryNumberInverse,2)) + (parseInt("1",2)));
- let tempVal;
- tempVal = binaryNumberInverseSum.toString(2);
- let signedNumberOutput = tempVal.replace("1","[1]");
+
+ 
+ let signedNumberOutput = binaryNumberInverseSum.toString(2);
  
  setanswer(`Answer Negative: ${signedNumberOutput}`);
 

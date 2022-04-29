@@ -105,7 +105,7 @@ const ComplementCalculator = () => {
 //Displays error message and removes it after a few seconds
 useEffect(() =>{
  
-  setTimeout(() =>{setisErrorPresent(false)},3000);
+  setTimeout(() =>{setisErrorPresent(false)},2000);
 
 },[isErrorPresent])
 

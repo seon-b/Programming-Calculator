@@ -34,7 +34,7 @@ class InputSelect extends Component{
       }
       if(this.props.option2 === e.target.value){
          this.setState({selectedChoice2: true});
-         console.log(`${this.state.selectedChoice1} choice2 selected`);  
+         
       }
       if(this.props.option3 === e.target.value){
          this.setState({selectedChoice3: true});
