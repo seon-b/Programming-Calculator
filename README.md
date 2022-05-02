@@ -1,3 +1,7 @@
+# Programming Calculator
+
+Programming Calculator is a frontend application. This app allows users to convert between binary, octal, decimal, and hexadecimal bases. In addtion, users can also calculate the one's and two's complement of a binary number,and add, subtract, multiply, and divide, binary numbers. It can only work with integers currently.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
