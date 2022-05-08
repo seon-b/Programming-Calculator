@@ -8,7 +8,7 @@ import SubmitButton from './SubmitButton.js';
 const ComplementCalculator = () => {
 
   const [binaryNumber, setBinaryNumber] = useState("");
-  const [binaryNumberLength, setBinaryNumberLength] = useState(0);
+ // const [binaryNumberLength, setBinaryNumberLength] = useState(0);
   const [complement1, setComplement1] = useState("");
   const [complement2, setComplement2] = useState("");
   const [errorStatement, seterrorStatement] = useState("Error!");
@@ -20,7 +20,7 @@ const ComplementCalculator = () => {
     
   
         setBinaryNumber(e.target.value);
-        setBinaryNumberLength(binaryNumber.length);
+        //setBinaryNumberLength(binaryNumber.length);
         
         if(binaryNumber === 0){
           setComplement1("00000000");

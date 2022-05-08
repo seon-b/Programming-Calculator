@@ -1,8 +1,7 @@
 .inputFormBaseConversion {
-  /* background-color: #05a8aa; */
-  /*background-color: #f15bb5;*/
   background-color: #ffd6e0;
 }
+
 .inputFormContainer {
   display: flex;
   justify-content: center;
