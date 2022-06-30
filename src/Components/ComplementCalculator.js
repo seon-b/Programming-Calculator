@@ -122,6 +122,12 @@ useEffect(() =>{
              <div className='d-flex justify-content-between mt-3'>
            
              </div>
+             <div className='d-flex justify-content-between mt-3'>
+           
+             </div>
+             <div className='d-flex justify-content-between mt-2'>
+           
+             </div>
             <div className='mt-3'>  
              <div className="form-group">
                <div className="outputAreastyle">

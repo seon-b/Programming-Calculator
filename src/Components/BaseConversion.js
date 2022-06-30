@@ -285,7 +285,7 @@ const BaseConversion = () =>{
            <label htmlFor="inputField1">Number</label>
            <input type="text" className="form-control" id="inputfield1" onChange={getUserInput} />
         </div>
-
+           <div className="mt-4"></div>
            <div className='mt-3'>
              <div className="form-group">
                <div className="outputAreastyle">
