@@ -23,32 +23,32 @@ const BaseConversion = () =>{
   })
   
   const getUserInput = (e) => {
-   setbaseConversionState({...baseConversionState}, {userInput: e.target.value});
+   setbaseConversionState({...baseConversionState, userInput: e.target.value});
  
   }
 
   const selectAChoice1 = (e) =>{
     if( "Base 2 (Binary)" === e.target.value){
       //  setbaseId1(2);
-       setbaseConversionState({...baseConversionState}, {baseId1: 2});
+       setbaseConversionState({...baseConversionState, baseId1: 2});
    
  
       
    }else if("Base 8 (Octal)"  === e.target.value){
       //  setbaseId1(8);
-       setbaseConversionState({...baseConversionState}, {baseId1: 8});
+       setbaseConversionState({...baseConversionState, baseId1: 8});
    
      
       
       
    }else if( "Base 10 (Decimal)"  === e.target.value){
       //  setbaseId1(10);
-      setbaseConversionState({...baseConversionState}, {baseId1: 10});
+      setbaseConversionState({...baseConversionState, baseId1: 10});
  
       
    }else if("Base 16 (Hexadecimal)" === e.target.value){
         // setbaseId1(16);
-        setbaseConversionState({...baseConversionState}, {baseId1: 16});
+        setbaseConversionState({...baseConversionState, baseId1: 16});
    
    
      
@@ -62,26 +62,26 @@ const BaseConversion = () =>{
    
     if( "Base 2 (Binary)" === e.target.value){
       //  setbaseId2(2);
-      setbaseConversionState({...baseConversionState}, {baseId2: 2});
+      setbaseConversionState({...baseConversionState, baseId2: 2});
     
      
        
     }else if("Base 8 (Octal)" === e.target.value){
       // setbaseId2(8);
-      setbaseConversionState({...baseConversionState}, {baseId2: 8});
+      setbaseConversionState({...baseConversionState, baseId2: 8});
     
      
        
        
     }else if( "Base 10 (Decimal)"  === e.target.value){
       //  setbaseId2(10);
-      setbaseConversionState({...baseConversionState}, {baseId2: 10});
+      setbaseConversionState({...baseConversionState, baseId2: 10});
     
       
        
     }else if("Base 16 (Hexadecimal)" === e.target.value){
       //  setbaseId2(16);
-      setbaseConversionState({...baseConversionState}, {baseId2: 16});
+      setbaseConversionState({...baseConversionState, baseId2: 16});
     
 
       
@@ -155,16 +155,16 @@ const BaseConversion = () =>{
   }
   //displays the error message for 1 second
   const handleError = () =>{
-    setbaseConversionState({...baseConversionState}, {isErrorPresent: true});
+    setbaseConversionState({...baseConversionState, isErrorPresent: true});
      
  }
 
   //Displays error message and removes it after a few seconds
   useEffect(() =>{
    
-  setTimeout(() =>{ setbaseConversionState({...baseConversionState}, {isErrorPresent: false})},2000);
+  setTimeout(() =>{ setbaseConversionState({...baseConversionState, isErrorPresent: false})},2000);
   
-  },[baseConversionState])
+  },[])
 
   
   
@@ -186,17 +186,18 @@ const BaseConversion = () =>{
     
     //performs base conversion and formats binary outputs
     const convert = () => {
+      console.log(baseConversionState.baseConversionOutput);
      if(convertToBase === 2){
         if(baseConversionState.userInput.length > 4){//pads 0's to keep binary input 4 to 8 bits.
-          setbaseConversionState({...baseConversionState}, {baseConversionOutput: parsedInput.toString(convertToBase).padStart(8, "0")});
+          setbaseConversionState({...baseConversionState, baseConversionOutput: parsedInput.toString(convertToBase).padStart(8, "0")});
         }else{
-          setbaseConversionState({...baseConversionState}, {baseConversionOutput: parsedInput.toString(convertToBase).padStart(4,"0")});
+          setbaseConversionState({...baseConversionState, baseConversionOutput: parsedInput.toString(convertToBase).padStart(4,"0")});
         }
   
      }else if (convertToBase === 16){
-      setbaseConversionState({...baseConversionState}, {baseConversionOutput: parsedInput.toString(convertToBase).toUpperCase()});
+      setbaseConversionState({...baseConversionState, baseConversionOutput: parsedInput.toString(convertToBase).toUpperCase()});
      }else if ((convertToBase !== 2) && (convertToBase !== 16)){
-      setbaseConversionState({...baseConversionState}, {baseConversionOutput: parsedInput.toString(convertToBase)});
+      setbaseConversionState({...baseConversionState, baseConversionOutput: parsedInput.toString(convertToBase)});
     }else{
 
     }
@@ -217,7 +218,7 @@ const BaseConversion = () =>{
         convert();
      
     }else{
-      setbaseConversionState({...baseConversionState}, {errorStatement:"Error, invalid binary number", baseConversionOutput: "" });
+      setbaseConversionState({...baseConversionState, errorStatement:"Error, invalid binary number", baseConversionOutput: "" });
       handleError();
     }
 
@@ -228,7 +229,7 @@ const BaseConversion = () =>{
         convert();
        
       }else{
-        setbaseConversionState({...baseConversionState}, {errorStatement:"Error, invalid octal number", baseConversionOutput: "" });
+        setbaseConversionState({...baseConversionState, errorStatement:"Error, invalid octal number", baseConversionOutput: "" });
         handleError();
       }
 
@@ -239,7 +240,7 @@ const BaseConversion = () =>{
         convert();
        
       }else{
-        setbaseConversionState({...baseConversionState}, {errorStatement:"Error, invalid decimal number", baseConversionOutput: "" });
+        setbaseConversionState({...baseConversionState, errorStatement:"Error, invalid decimal number", baseConversionOutput: "" });
         handleError();
       }
 
@@ -250,13 +251,13 @@ const BaseConversion = () =>{
         convert();
         
       }else{
-        setbaseConversionState({...baseConversionState}, {errorStatement:"Error, invalid hexadecimal number", baseConversionOutput: "" });
+        setbaseConversionState({...baseConversionState, errorStatement:"Error, invalid hexadecimal number", baseConversionOutput: "" });
 
         handleError();
       }
 
     }else{
-      setbaseConversionState({...baseConversionState}, {errorStatement:"Error, invalid decimal number", baseConversionOutput: "" });
+      setbaseConversionState({...baseConversionState, errorStatement:"Error, invalid decimal number", baseConversionOutput: "" });
       handleError();
     }
    
