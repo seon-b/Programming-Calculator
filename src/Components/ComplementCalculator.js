@@ -7,24 +7,36 @@ import SubmitButton from './SubmitButton.js';
 
 const ComplementCalculator = () => {
 
-  const [binaryNumber, setBinaryNumber] = useState("");
- // const [binaryNumberLength, setBinaryNumberLength] = useState(0);
-  const [complement1, setComplement1] = useState("");
-  const [complement2, setComplement2] = useState("");
-  const [errorStatement, seterrorStatement] = useState("Error!");
-  const [isErrorPresent, setisErrorPresent] = useState(false);
+  const[complementCalculatorState, setcomplementCalculatorState] = useState({
+    binaryNumber: "",
+    complement1: "",
+    complement2: "",
+    errorStatement: "Error!",
+    isErrorPresent: false,
+
+  });
+
+//   const [binaryNumber, setBinaryNumber] = useState("");
+//  // const [binaryNumberLength, setBinaryNumberLength] = useState(0);
+//   const [complement1, setComplement1] = useState("");
+//   const [complement2, setComplement2] = useState("");
+//   const [errorStatement, seterrorStatement] = useState("Error!");
+//   const [isErrorPresent, setisErrorPresent] = useState(false);
 
   
 
   const getUserInput = (e) =>{
+
+    setcomplementCalculatorState({...complementCalculatorState, binaryNumber: e.target.value});
     
   
-        setBinaryNumber(e.target.value);
+        // setBinaryNumber(e.target.value);
         //setBinaryNumberLength(binaryNumber.length);
         
-        if(binaryNumber === 0){
-          setComplement1("00000000");
-          setComplement2("00000000");
+        if(complementCalculatorState.binaryNumber === 0){
+          // setComplement1("00000000");
+          // setComplement2("00000000");
+          setcomplementCalculatorState({...complementCalculatorState, setComplement1:"00000000", setComplement2: "00000000"});
 
         }
       
@@ -36,7 +48,7 @@ const ComplementCalculator = () => {
 
     let regex = /(^[0-1]{1,8})$/;
 
-    const isInputValid1 = regex.test(binaryNumber);
+    const isInputValid1 = regex.test(complementCalculatorState.binaryNumber);
     
     
     if(isInputValid1 === true){
@@ -63,7 +75,7 @@ const ComplementCalculator = () => {
     if(isBinaryNumValid === true) {
       //formats the binary output to displat an 8-bit value
       let formatBinaryNumber;
-      formatBinaryNumber = binaryNumber.padStart(8,'0');
+      formatBinaryNumber = complementCalculatorState.binaryNumber.padStart(8,'0');
    
       
       for(let i = 0; i < formatBinaryNumber.length; i++){
@@ -77,37 +89,42 @@ const ComplementCalculator = () => {
       }
       
      }else{
-      seterrorStatement("Error, invalid binary number");
-      //reset output fields
-      setComplement1("");
-      setComplement2("");
+      // seterrorStatement("Error, invalid binary number");
+      // //reset output fields
+      // setComplement1("");
+      // setComplement2("");
+      setcomplementCalculatorState({...complementCalculatorState, setComplement1:"", setComplement2: "", errorStatement: "Error, invalid binary number"});
       handleError();
     }
     
-    if (binaryNumber.length === 0 ){
+    if (complementCalculatorState.binaryNumber.length === 0 ){
 
     }else{
     binaryNumberInverse = binaryNumberArray.join("");  
     let binaryNumberInverseSum = ((parseInt(binaryNumberInverse,2)) + (parseInt("1",2)));
 
-    setComplement1(binaryNumberInverse);
-    setComplement2(binaryNumberInverseSum.toString(2));
+    // setComplement1(binaryNumberInverse);
+    // setComplement2(binaryNumberInverseSum.toString(2));
+    setcomplementCalculatorState({...complementCalculatorState, complement1: binaryNumberInverse, complement2: binaryNumberInverseSum.toString(2)});
+    
     
     }
   }
 
 
   const handleError = () =>{
-    setisErrorPresent(true);
+    // setisErrorPresent(true);
+    setcomplementCalculatorState({...complementCalculatorState, isErrorPresent: true});
+    
      
   }
 
 //Displays error message and removes it after a few seconds
 useEffect(() =>{
  
-  setTimeout(() =>{setisErrorPresent(false)},2000);
+  setTimeout(() =>{setcomplementCalculatorState({...complementCalculatorState, isErrorPresent: false})},2000);
 
-},[isErrorPresent])
+},[complementCalculatorState.isErrorPresent]);
 
 
   
@@ -115,7 +132,7 @@ useEffect(() =>{
         <div className="inputFormContainer mb-5">
            <form className="inputFormBaseConversion">
              <AppName formName = "Complement Calculator" />
-             <div className="alert alert-primary" style={{display:(isErrorPresent?"block":"none")}} role="alert">{errorStatement}</div>
+             <div className="alert alert-primary" style={{display:(complementCalculatorState.isErrorPresent?"block":"none")}} role="alert">{complementCalculatorState.errorStatement}</div>
 
              <InputText inputName="Binary Number" handleChange1={getUserInput}/>
              
@@ -132,7 +149,7 @@ useEffect(() =>{
              <div className="form-group">
                <div className="outputAreastyle">
                   <label htmlFor="conversionOutputArea">1's Complement</label>
-                  <textarea className="form-control" id="conversionOutputArea" rows="2" value={complement1} disabled></textarea>
+                  <textarea className="form-control" id="conversionOutputArea" rows="2" value={complementCalculatorState.complement1} disabled></textarea>
                </div>
              </div>
          </div>
@@ -140,7 +157,7 @@ useEffect(() =>{
              <div className="form-group">
                <div className="outputAreastyle">
                   <label htmlFor="conversionOutputArea">2's Complement</label>
-                  <textarea className="form-control" id="conversionOutputArea" rows="2" value={complement2} disabled></textarea>
+                  <textarea className="form-control" id="conversionOutputArea" rows="2" value={complementCalculatorState.complement2} disabled></textarea>
                </div>
              </div>
          </div>

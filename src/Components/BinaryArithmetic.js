@@ -19,22 +19,7 @@ const BinaryArithmetic = () => {
 
   })
 
-  // const [selectedOperator, setselectedOperator] = useState("Add");
-  // const [answerName, setanswerName] = useState("Sum");
-  // //const [selectedRadioInput1, setselectedRadioInput1] = useState(false);
-  // //const [selectedRadioInput2, setselectedRadioInput2] = useState(false);
-  // //const [selectedRadioInput3, setselectedRadioInput3] = useState(false);
-  // //const [selectedRadioInput4, setselectedRadioInput4] = useState(false);
-  // const [binaryNumber1, setbinaryNumber1] = useState("");
-  // //const [binaryNumber1Length, setbinaryNumber1Length] = useState(0);
-  // const [binaryNumber2, setbinaryNumber2] = useState("");
-  // //const [binaryNumber2Length, setbinaryNumber2Length] = useState(0);
-  // const [answer, setanswer] = useState("");
-  // //const [answerLength, setanswerLength] = useState(8);
-  // //const [answerType, setanswerType] = useState("");
-  // const [negativeDifference, setnegativeDifference] = useState("");
-  // const [errorStatement, seterrorStatement] = useState("");
-  // const [isErrorPresent, setisErrorPresent] = useState(false);
+  
   
  
   // These functions are passed as props to modify the text in the SubmitButton
@@ -42,63 +27,42 @@ const BinaryArithmetic = () => {
    
     setbinaryArithmeticState({...binaryArithmeticState, selectedOperator:"Add", answerName: "Sum"});
     
-    /*setselectedRadioInput1(true);
-    setselectedRadioInput2(false);
-    setselectedRadioInput3(false);
-    setselectedRadioInput4(false);*/
+    
   }
 
  const changeSubmitButton2 = () =>{
     
   setbinaryArithmeticState({...binaryArithmeticState, selectedOperator:"Subtract", answerName: "Difference"});
 
-    // setselectedOperator("Subtract");
-    // setanswerName("Difference");
-   /* setselectedRadioInput1(false);
-    setselectedRadioInput2(true);
-    setselectedRadioInput3(false);
-    setselectedRadioInput4(false);*/
+    
   }
 
   const changeSubmitButton3 = () =>{
 
     setbinaryArithmeticState({...binaryArithmeticState, selectedOperator:"Multiply", answerName: "Product"});
   
-    // setselectedOperator("Multiply");
-    // setanswerName("Product");
-   /* setselectedRadioInput1(false);
-    setselectedRadioInput2(false);
-    setselectedRadioInput3(true);
-    setselectedRadioInput4(false);*/
+   
   }
 
   const changeSubmitButton4 = () =>{
 
     setbinaryArithmeticState({...binaryArithmeticState, selectedOperator:"Divide", answerName: "Quotient"});
    
-    // setselectedOperator("Divide");
-    // setanswerName("Quotient");
-   /* setselectedRadioInput1(false);
-    setselectedRadioInput2(false);
-    setselectedRadioInput3(false);
-    setselectedRadioInput4(true);*/
+    
   }
   
   
   const getInputData1 = (e) =>{
 
     setbinaryArithmeticState({...binaryArithmeticState, binaryNumber1: e.target.value});
-      
-      // setbinaryNumber1(e.target.value);
-      //setbinaryNumber1Length(e.target.value.length);
+     
      
   }
 
   const getInputData2 = (e) =>{
 
     setbinaryArithmeticState({...binaryArithmeticState, binaryNumber2: e.target.value});
-      //setbinaryNumber2(e.target.value);
-      //setbinaryNumber2Length(e.target.value.length);
+      
     
   }
 
@@ -119,7 +83,7 @@ const BinaryArithmetic = () => {
 
    const handleError = () =>{
     setbinaryArithmeticState({...binaryArithmeticState, isErrorPresent: true}); 
-    // setisErrorPresent(true);
+    
        
    }
 
@@ -144,13 +108,13 @@ const BinaryArithmetic = () => {
   
     let sum = num1 + num2;
     sumStr = sum.toString(2);
-    //setanswerLength(sumStr.length);
+    
     if (sumStr.length > 4){
       setbinaryArithmeticState({...binaryArithmeticState, answer: sumStr.padStart(8, "0")});
-      // setanswer(sumStr.padStart(8,"0"));
+    
     }else{
       setbinaryArithmeticState({...binaryArithmeticState, answer: sumStr.padStart(4, "0")});
-      // setbinaryArithmeticState(sumStr.padStart(4,"0"));
+     
     }
   
    
@@ -174,21 +138,21 @@ const BinaryArithmetic = () => {
       differenceStr = difference.toString(2).padStart(8,"0");
       calculateComplements();
 
-      //setanswerLength(differenceStr.length);
+     
       setbinaryArithmeticState({...binaryArithmeticState, negativeDifference: differenceStr});
-      // setnegativeDifference(differenceStr);
+  
      
       
     }else{
       differenceStr = difference.toString(2);
       
-     // setanswerLength(differenceStr.length)
+     
       if (differenceStr.length > 4){
-        // setanswer(differenceStr.padStart(8,"0"));
+   
         setbinaryArithmeticState({...binaryArithmeticState, answer: differenceStr.padStart(8, "0")});
       }else{
         setbinaryArithmeticState({...binaryArithmeticState, answer: differenceStr.padStart(4, "0")});
-        // setanswer(differenceStr.padStart(4,"0"));
+     
       }
     
      
@@ -205,14 +169,13 @@ const BinaryArithmetic = () => {
   
     let product = num1 * num2;
     productStr = product.toString(2);
-    //setanswerLength(productStr.length);
-    
+
     if (productStr.length > 4){
       setbinaryArithmeticState({...binaryArithmeticState, answer: productStr.padStart(8, "0")});
-      // setanswer(productStr.padStart(8,"0"));
+    
     }else{
       setbinaryArithmeticState({...binaryArithmeticState, answer: productStr.padStart(4, "0")});
-      // setanswer(productStr.padStart(4,"0"));
+      
     }
   
    
@@ -227,13 +190,13 @@ const BinaryArithmetic = () => {
   
     let quotient = num1 / num2;
     quotientStr = Math.floor(quotient).toString(2);
-    //setanswerLength(quotientStr.length);
+
     if (quotientStr.length > 4){
       setbinaryArithmeticState({...binaryArithmeticState, answer: quotientStr.padStart(8, "0")});
-      // setanswer(quotientStr.padStart(8,"0"));
+      
     }else{
       setbinaryArithmeticState({...binaryArithmeticState, answer: quotientStr.padStart(4, "0")});
-      // setanswer(quotientStr.padStart(4,"0"));
+  
     }
   
    }
@@ -261,8 +224,7 @@ const BinaryArithmetic = () => {
     
     
    }else{
-    //  seterrorStatement("Error, invalid binary number");
-    //  setanswer("");
+  
     setbinaryArithmeticState({...binaryArithmeticState, errorStatement: "Error, invalid binary number", answer: ""});
     
      handleError();
@@ -292,8 +254,7 @@ const BinaryArithmetic = () => {
  
  let signedNumberOutput = binaryNumberInverseSum.toString(2);
  
- 
-//  setanswer(`Answer Negative: ${signedNumberOutput}`);
+
 setbinaryArithmeticState({...binaryArithmeticState, answer: `Answer Negative: ${signedNumberOutput}`});
 
 }
