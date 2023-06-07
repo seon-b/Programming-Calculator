@@ -4,13 +4,6 @@ import AppName from './AppName';
 import SubmitButton from './SubmitButton.js';
 
 const BaseConversion = () =>{
-  //React Hooks
-  // const [userInput, setuserInput] = useState("");
-  // const [baseId1, setbaseId1] = useState(2);
-  // const [baseId2, setbaseId2] = useState(2);
-  // const [baseConversionOutput, setbaseConversionOutput] = useState("");
-  // const [errorStatement, seterrorStatement] = useState("");
-  // const [isErrorPresent, setisErrorPresent] = useState(false)
 
   const[baseConversionState, setbaseConversionState] = useState({
     userInput: "",
@@ -112,7 +105,7 @@ const BaseConversion = () =>{
     let regex = /(^[0-7]{1,8})$/;
 
     const isInputValid1 = regex.test(baseConversionState.userInput);
-    
+    console.log(isInputValid1);
     
     if(isInputValid1 === true && baseConversionState.baseId1 === 8){
         return true;
@@ -164,7 +157,7 @@ const BaseConversion = () =>{
    
   setTimeout(() =>{ setbaseConversionState({...baseConversionState, isErrorPresent: false})},2000);
   
-  },[])
+  },[baseConversionState.isErrorPresent])
 
   
   
@@ -176,7 +169,6 @@ const BaseConversion = () =>{
 
    const convertInputToSelectedBase = (inputValue, currentBase, convertToBase) =>{
   
- 
     let isBaseValid;
     let parsedInput = 0;
     
@@ -186,7 +178,7 @@ const BaseConversion = () =>{
     
     //performs base conversion and formats binary outputs
     const convert = () => {
-      console.log(baseConversionState.baseConversionOutput);
+      
      if(convertToBase === 2){
         if(baseConversionState.userInput.length > 4){//pads 0's to keep binary input 4 to 8 bits.
           setbaseConversionState({...baseConversionState, baseConversionOutput: parsedInput.toString(convertToBase).padStart(8, "0")});
