@@ -14,10 +14,11 @@ const BinaryArithmetic = () => {
     binaryNumber2: "",
     answer: "",
     negativeDifference: "",
-    errorStatement: "",
-    isErrorPresent: false,
 
-  })
+  });
+
+  const[errorStatement, seterrorStatement] = useState("");
+  const[isErrorPresent, setisErrorPresent] = useState(false);
 
   
   
@@ -82,7 +83,7 @@ const BinaryArithmetic = () => {
    }
 
    const handleError = () =>{
-    setbinaryArithmeticState({...binaryArithmeticState, isErrorPresent: true}); 
+    setisErrorPresent(true); 
     
        
    }
@@ -90,9 +91,9 @@ const BinaryArithmetic = () => {
 //Displays error message and removes it after a few seconds
  useEffect(() =>{
    
-  setTimeout(() =>{setbinaryArithmeticState({...binaryArithmeticState, isErrorPresent: false})},2000);
+  setTimeout(() =>{setisErrorPresent(false)},2000);
  
- },[binaryArithmeticState.isErrorPresent]);
+ },[isErrorPresent]);
  
 
    //Each function performs the indicated operation in binary and converts the answer into a string and sets the state of the answer,
@@ -225,8 +226,8 @@ const BinaryArithmetic = () => {
     
    }else{
   
-    setbinaryArithmeticState({...binaryArithmeticState, errorStatement: "Error, invalid binary number", answer: ""});
-    
+    setbinaryArithmeticState({...binaryArithmeticState, answer: ""});
+     seterrorStatement("Error, invalid binary number");
      handleError();
    } 
   }
@@ -267,7 +268,7 @@ setbinaryArithmeticState({...binaryArithmeticState, answer: `Answer Negative: ${
       <div className="inputFormContainer mb-5">
          <form className="inputFormBaseConversion">
            <AppName formName="Binary Arithmetic" />
-           <div className="alert alert-primary" style={{display:(binaryArithmeticState.isErrorPresent?"block":"none")}} role="alert">{binaryArithmeticState.errorStatement}</div>
+           <div className="alert alert-primary" style={{display:(isErrorPresent?"block":"none")}} role="alert">{errorStatement}</div>
 
            <div className="form-group mt-2">
              <label htmlFor="inputField1">Binary Number</label>

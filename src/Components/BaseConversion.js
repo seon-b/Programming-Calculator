@@ -10,10 +10,12 @@ const BaseConversion = () =>{
     baseId1: 2,
     baseId2: 2,
     baseConversionOutput: "",
-    errorStatement: "",
     isErrorPresent: false,
 
-  })
+  });
+
+  const[errorStatement, seterrorStatement] = useState("");
+  const[isErrorPresent, setisErrorPresent] = useState(false);
   
   const getUserInput = (e) => {
    setbaseConversionState({...baseConversionState, userInput: e.target.value});
@@ -148,16 +150,16 @@ const BaseConversion = () =>{
   }
   //displays the error message for 1 second
   const handleError = () =>{
-    setbaseConversionState({...baseConversionState, isErrorPresent: true});
+    setisErrorPresent(true);
      
  }
 
   //Displays error message and removes it after a few seconds
   useEffect(() =>{
    
-  setTimeout(() =>{ setbaseConversionState({...baseConversionState, isErrorPresent: false})},2000);
+  setTimeout(() =>{ setisErrorPresent(false)},2000);
   
-  },[baseConversionState.isErrorPresent])
+  },[isErrorPresent])
 
   
   
@@ -210,7 +212,8 @@ const BaseConversion = () =>{
         convert();
      
     }else{
-      setbaseConversionState({...baseConversionState, errorStatement:"Error, invalid binary number", baseConversionOutput: "" });
+      setbaseConversionState({...baseConversionState, baseConversionOutput: "" });
+      seterrorStatement("Error, invalid binary number");
       handleError();
     }
 
@@ -221,7 +224,8 @@ const BaseConversion = () =>{
         convert();
        
       }else{
-        setbaseConversionState({...baseConversionState, errorStatement:"Error, invalid octal number", baseConversionOutput: "" });
+        setbaseConversionState({...baseConversionState, baseConversionOutput: "" });
+        seterrorStatement("Error, invalid octal number");
         handleError();
       }
 
@@ -232,7 +236,8 @@ const BaseConversion = () =>{
         convert();
        
       }else{
-        setbaseConversionState({...baseConversionState, errorStatement:"Error, invalid decimal number", baseConversionOutput: "" });
+        setbaseConversionState({...baseConversionState, baseConversionOutput: "" });
+        seterrorStatement("Error, invalid decimal number");
         handleError();
       }
 
@@ -243,13 +248,15 @@ const BaseConversion = () =>{
         convert();
         
       }else{
-        setbaseConversionState({...baseConversionState, errorStatement:"Error, invalid hexadecimal number", baseConversionOutput: "" });
-
+        setbaseConversionState({...baseConversionState, baseConversionOutput: "" });
+        seterrorStatement("Error, invalid hexadecimal number");
         handleError();
+
       }
 
     }else{
-      setbaseConversionState({...baseConversionState, errorStatement:"Error, invalid decimal number", baseConversionOutput: "" });
+      setbaseConversionState({...baseConversionState,  baseConversionOutput: "" });
+      seterrorStatement("Error, please enter a valid number");
       handleError();
     }
    
@@ -265,7 +272,7 @@ const BaseConversion = () =>{
       
          <form className="inputFormBaseConversion">
            <AppName formName="Base Conversion" />
-           <div className="alert alert-primary" style={{display:(baseConversionState.isErrorPresent?"block":"none")}} role="alert">{baseConversionState.errorStatement}</div>
+           <div className="alert alert-primary" style={{display:(isErrorPresent?"block":"none")}} role="alert">{errorStatement}</div>
 
           <div className="form-group mt-2">
             <label htmlFor="selectForm">Convert From</label>
