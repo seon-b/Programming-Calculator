@@ -1,38 +1,24 @@
-import React,{Component} from 'react';
+import React from 'react';
 import './InputForm.css'
 
 
 
+const BaseComponent1 = (props) =>{
 
-class BaseComponent1 extends Component{
-    static defaultProps = {
-        inputName: "",
-        option1: "",
-        option2: "",
-        option3: "",
-        option4: "",
-        
-    }; 
-
- 
+  return(
+          <div className="form-group mt-2">
+            <label htmlFor="selectForm">{props.inputName}</label>
+            <select  onChange={this.handleChange} className="form-control" id="selectForm">
+              <option id="option1" value={props.option1}>{props.option1}</option>
+              <option id="option2" value={props.option2}>{props.option2}</option>
+              <option id="option3" value={props.option3}>{props.option3}</option>
+              <option id="option4" value={props.option4}>{props.option4}</option>
+            </select>
+          </div> 
+    
+        );
   
-
-render(){
-    return(
-      <div className="form-group mt-2">
-        <label htmlFor="selectForm">{this.props.inputName}</label>
-        <select  onChange={this.handleChange} className="form-control" id="selectForm">
-          <option id="option1" value={this.props.option1}>{this.props.option1}</option>
-          <option id="option2" value={this.props.option2}>{this.props.option2}</option>
-          <option id="option3" value={this.props.option3}>{this.props.option3}</option>
-          <option id="option4" value={this.props.option4}>{this.props.option4}</option>
-        </select>
-      </div> 
-
-    );
 }
 
-
-
-}
 export default BaseComponent1;
+
