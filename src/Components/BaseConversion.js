@@ -107,7 +107,7 @@ const BaseConversion = () =>{
     let regex = /(^[0-7]{1,8})$/;
 
     const isInputValid1 = regex.test(baseConversionState.userInput);
-    console.log(isInputValid1);
+   
     
     if(isInputValid1 === true && baseConversionState.baseId1 === 8){
         return true;
