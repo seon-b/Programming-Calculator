@@ -19,10 +19,10 @@ class SubmitButton extends Component {
 
   render() {
     return (
-      <div className="submitButtonComponent mt-3">
+      <div className="submitButtonComponent">
         <button
           type="button"
-          className="btn btn-primary submitButtonColor"
+          className="submitButtonColor"
           onClick={this.submitButtonFunction1}
         >
           {this.props.inputName}
