@@ -1,11 +1,9 @@
 import React, { useState } from "react";
-import "./App.css";
-import "./Components/NavBar.css";
 import BaseConversion from "./Components/BaseConversion";
-import "./Components/BaseConversion.css";
 import ComplementCalculator from "./Components/ComplementCalculator";
-import "./Components/DeleteButtonIcon.css";
 import BinaryArithmetic from "./Components/BinaryArithmetic";
+import "./App.css";
+import "./Components/Component.css";
 
 const App = () => {
   const [appState, setappState] = useState({
@@ -69,120 +67,109 @@ const App = () => {
   };
 
   return (
-    <div className="App container">
-      <header className="row mb-4">
-        <nav className="navBarStyle">
-          <section className="navBarItem1">
-            <div className="navBarLogo">
-              <button
-                id="programmingCalculatorId"
-                className="btn"
-                onClick={displayHomepage}
-              >
-                <h1>
-                  <i className="bi bi-calculator"></i>
-                  <span className="navBarTitleText">
-                    Programming Calculator
-                  </span>
-                </h1>
-              </button>
-            </div>
-          </section>
-          <section className="navBarItem2">
-            <div className="navBarLink">
-              <button
-                id="baseConversionApp"
-                className="btn"
-                onClick={displayBaseConversionApp}
-              >
-                <h2>
-                  X<sup>n&nbsp;</sup>
-                  <span className="baseConversion">Base Conversion</span>
-                </h2>
-              </button>
-            </div>
-          </section>
-          <section className="navBarItem3">
-            <div className="navBarLink">
-              <button
-                id="baseConversionApp"
-                className="btn"
-                onClick={displayBinaryArithmeticApp}
-              >
-                <h2>
-                  2<sup>n&nbsp;</sup>
-                  <span className="baseConversion">Binary Arithmetic</span>
-                </h2>
-              </button>
-            </div>
-          </section>
-          <section className="navBarItem4">
-            <div className="navBarLink">
-              <button
-                id="complementCalculatorApp"
-                className="btn"
-                onClick={displayComplementCalculatorApp}
-              >
-                {" "}
-                <h2>
-                  <i className="bi bi-plus-slash-minus"></i>&nbsp;
-                  <span className="complementCalculator">
-                    Complement Calculator
-                  </span>
-                </h2>{" "}
-              </button>
-            </div>
-          </section>
-        </nav>
-      </header>
-      <div className="row">
-        <div className="col-sm-4">
-          <div
-            className="inputFormContainer mb-5"
-            style={{ display: appState.baseConversionApp ? "block" : "none" }}
-          >
-            <div className="deleteIconStyle" onClick={removeBaseConversionApp}>
-              <div>
-                <i className="btn bi bi-x-square"></i>
-              </div>
-            </div>
-            <BaseConversion />
+    <div className="appContainer">
+      <nav className="navBarStyle">
+        <section className="navBarItem1">
+          <div className="navBarLogo">
+            <button
+              id="programmingCalculatorId"
+              className=""
+              onClick={displayHomepage}
+            >
+              <h1>
+                <i className="bi bi-calculator"></i>
+                <span className="navBarTitleText">Programming Calculator</span>
+              </h1>
+            </button>
           </div>
+        </section>
+        <section className="navBarItem2">
+          <div className="navBarLink">
+            <button
+              id="baseConversionApp"
+              className=""
+              onClick={displayBaseConversionApp}
+            >
+              <h2>
+                X<sup>n&nbsp;</sup>
+                <span className="baseConversion">Base Conversion</span>
+              </h2>
+            </button>
+          </div>
+        </section>
+        <section className="navBarItem3">
+          <div className="navBarLink">
+            <button
+              id="baseConversionApp"
+              className=""
+              onClick={displayBinaryArithmeticApp}
+            >
+              <h2>
+                2<sup>n&nbsp;</sup>
+                <span className="baseConversion">Binary Arithmetic</span>
+              </h2>
+            </button>
+          </div>
+        </section>
+        <section className="navBarItem4">
+          <div className="navBarLink">
+            <button
+              id="complementCalculatorApp"
+              className=""
+              onClick={displayComplementCalculatorApp}
+            >
+              {" "}
+              <h2>
+                <i className="bi bi-plus-slash-minus"></i>&nbsp;
+                <span className="complementCalculator">
+                  Complement Calculator
+                </span>
+              </h2>{" "}
+            </button>
+          </div>
+        </section>
+      </nav>
+
+      <div className="componentContainer">
+        <div
+          className="inputFormContainer"
+          style={{ display: appState.baseConversionApp ? "block" : "none" }}
+        >
+          <div className="deleteIconStyle" onClick={removeBaseConversionApp}>
+            <div>
+              <i className="btn bi bi-x-square"></i>
+            </div>
+          </div>
+          <BaseConversion />
         </div>
 
-        <div className="col-sm-4">
-          <div
-            className="inputFormContainer mb-5"
-            style={{ display: appState.binaryArithmeticApp ? "block" : "none" }}
-          >
-            <div
-              className="deleteIconStyle"
-              onClick={removeBinaryArithmeticApp}
-            >
-              <div>
-                <i className="btn bi bi-x-square "></i>
-              </div>
+        <div
+          className="inputFormContainer"
+          style={{ display: appState.binaryArithmeticApp ? "block" : "none" }}
+        >
+          <div className="deleteIconStyle" onClick={removeBinaryArithmeticApp}>
+            <div>
+              <i className="btn bi bi-x-square "></i>
             </div>
-            <BinaryArithmetic />
           </div>
+          <BinaryArithmetic />
         </div>
-        <div className="col-sm-4">
+
+        <div
+          className="inputFormContainer"
+          style={{
+            display: appState.complementCalculatorApp ? "block" : "none",
+          }}
+        >
           <div
-            className="inputFormContainer mb-5"
-            style={{
-              display: appState.complementCalculatorApp ? "block" : "none",
-            }}
+            className="deleteIconStyle"
+            onClick={removeComplementCalculatorApp}
           >
-            <div
-              className="deleteIconStyle"
-              onClick={removeComplementCalculatorApp}
-            >
-              <div>
-                <i className="btn bi bi-x-square"></i>
-              </div>
+            <div>
+              <i className="btn bi bi-x-square"></i>
             </div>
-            <ComplementCalculator />
           </div>
+          <ComplementCalculator />
         </div>
       </div>
     </div>
