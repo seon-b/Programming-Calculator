@@ -1,0 +1,65 @@
+.inputFormContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.inputFormBaseConversion {
+  padding: 2em;
+  border: solid 2px black;
+  border-radius: 5%;
+}
+
+.inputFormHr {
+  color: black;
+  border-top: 3px;
+}
+
+.bi-x-square {
+  color: hsl(209, 100%, 71%);
+  font-size: 1em;
+}
+
+.bi-x-square:hover {
+  color: #ffd6e0;
+}
+
+.deleteIconStyle {
+  display: flex;
+  justify-content: center;
+}
+
+.navBarStyle {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 15px;
+  font-family: "Domine", serif;
+}
+
+.navBarTitleText {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.btn {
+  outline-color: #ffd6e0;
+}
+.btn:active {
+  border-color: black;
+}
+
+.btn:focus {
+  box-shadow: #ffd6e0;
+}
+
+.radioButtonColor {
+  box-shadow: none;
+}
+
+.submitButtonColor {
+  background-color: hsl(209, 100%, 71%);
+  border-color: hsl(209, 100%, 71%);
+  /* border-color: black; */
+}
