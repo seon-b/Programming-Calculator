@@ -1,6 +1,4 @@
 import React, { useState, useEffect } from "react";
-import AppName from "./AppName";
-import RadioButton from "./RadioButton";
 import "./Component.css";
 
 const BinaryArithmetic = () => {
@@ -239,7 +237,9 @@ const BinaryArithmetic = () => {
   return (
     <div className="inputFormContainer">
       <form className="inputFormBaseConversion">
-        <AppName formName="Binary Arithmetic" />
+        <div className="">
+          <h3 className="appNameStyle">Binary Arithmetic</h3>
+        </div>
         <div
           className=""
           style={{ display: isErrorPresent ? "block" : "none" }}
@@ -267,16 +267,55 @@ const BinaryArithmetic = () => {
           />
         </div>
 
-        <RadioButton
-          inputName1="Add"
-          inputName2="Subtract"
-          inputName3="Multiply"
-          inputName4="Divide"
-          handleChange1={changeSubmitButton1}
-          handleChange2={changeSubmitButton2}
-          handleChange3={changeSubmitButton3}
-          handleChange4={changeSubmitButton4}
-        />
+        <div className="radioButtonContainer">
+          <label className="" htmlFor="inlineRadio1">
+            Add
+          </label>
+          <input
+            className="radioButtonColor"
+            onChange={changeSubmitButton1}
+            type="radio"
+            name="inlineRadioOptions"
+            id="inlineRadio1"
+            value="option1"
+          />
+
+          <label className="" htmlFor="inlineRadio2">
+            Subtract
+          </label>
+          <input
+            className="radioButtonColor"
+            onChange={changeSubmitButton2}
+            type="radio"
+            name="inlineRadioOptions"
+            id="inlineRadio2"
+            value="option2"
+          />
+
+          <label className="" htmlFor="inlineRadio3">
+            Multiply
+          </label>
+          <input
+            className=" radioButtonColor"
+            onChange={changeSubmitButton3}
+            type="radio"
+            name="inlineRadioOptions"
+            id="inlineRadio3"
+            value="option3"
+          />
+
+          <label className="" htmlFor="inlineRadio4">
+            Divide
+          </label>
+          <input
+            className=""
+            onChange={changeSubmitButton4}
+            type="radio"
+            name="inlineRadioOptions"
+            id="inlineRadio4"
+            value="option4"
+          />
+        </div>
 
         <div className="">
           <div className="">
@@ -296,7 +335,11 @@ const BinaryArithmetic = () => {
         </div>
 
         <div className="submitButtonComponent">
-          <button type="button" className="" onClick={calculate}>
+          <button
+            type="button"
+            className="submitButtonColor"
+            onClick={calculate}
+          >
             {binaryArithmeticState.selectedOperator}
           </button>
         </div>
