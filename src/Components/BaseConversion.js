@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import AppName from "./AppName";
 import SubmitButton from "./SubmitButton.js";
 import "./Component.css";
 
@@ -229,7 +228,9 @@ const BaseConversion = () => {
   return (
     <div className="inputFormContainer">
       <form className="inputFormBaseConversion">
-        <AppName formName="Base Conversion" />
+        <div className="">
+          <h3 className="appNameStyle">Base Conversion</h3>
+        </div>
         <div
           className=""
           style={{ display: isErrorPresent ? "block" : "none" }}
@@ -287,7 +288,6 @@ const BaseConversion = () => {
             onChange={getUserInput}
           />
         </div>
-        <div className=""></div>
         <div className="">
           <div className="">
             <div className="outputAreastyle">
