@@ -1,6 +1,4 @@
 import React, { useState, useEffect } from "react";
-import AppName from "./AppName";
-import InputText from "./InputText.js";
 import SubmitButton from "./SubmitButton.js";
 import "./Component.css";
 
@@ -101,7 +99,9 @@ const ComplementCalculator = () => {
   return (
     <div className="inputFormContainer">
       <form className="inputFormBaseConversion">
-        <AppName formName="Complement Calculator" />
+        <div className="">
+          <h3 className="appNameStyle">Complement Calculator</h3>
+        </div>
         <div
           className="alert alert-primary"
           style={{ display: isErrorPresent ? "block" : "none" }}
@@ -110,11 +110,16 @@ const ComplementCalculator = () => {
           {errorStatement}
         </div>
 
-        <InputText inputName="Binary Number" handleChange1={getUserInput} />
+        <div className="form-group mt-2">
+          <label htmlFor="inputField1">Binary Number</label>
+          <input
+            type="text"
+            className="form-control"
+            id="inputfield1"
+            onChange={getUserInput}
+          />
+        </div>
 
-        <div className=""></div>
-        <div className=""></div>
-        <div className=""></div>
         <div className="">
           <div className="">
             <div className="outputAreastyle">
