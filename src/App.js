@@ -130,7 +130,7 @@ const App = () => {
       <div className="componentContainer">
         <div
           className={`inputFormContainer ${
-            appState.baseConversionApp ? "hideComponent" : ""
+            appState.baseConversionApp ? "" : "hideComponent"
           }`}
         >
           <BaseConversion handleClick={removeBaseConversionApp} />
@@ -138,7 +138,7 @@ const App = () => {
 
         <div
           className={`inputFormContainer ${
-            appState.binaryArithmeticApp ? "hideComponent" : ""
+            appState.binaryArithmeticApp ? "" : "hideComponent"
           }`}
         >
           <BinaryArithmetic handleClick={removeBinaryArithmeticApp} />
@@ -146,7 +146,7 @@ const App = () => {
 
         <div
           className={`inputFormContainer ${
-            appState.complementCalculatorApp ? "hideComponent" : ""
+            appState.complementCalculatorApp ? "" : "hideComponent"
           }`}
         >
           <ComplementCalculator handleClick={removeComplementCalculatorApp} />
