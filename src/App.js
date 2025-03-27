@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import BaseConversion from "./Components/BaseConversion";
 import ComplementCalculator from "./Components/ComplementCalculator";
 import BinaryArithmetic from "./Components/BinaryArithmetic";
-import "./App.css";
 import "./Components/Component.css";
 
 const App = () => {
@@ -55,15 +54,13 @@ const App = () => {
   };
 
   const displayHomepage = () => {
-    if (appState.programmingCalculator === true) {
-      setappState({
-        ...appState,
-        programmingCalculator: true,
-        baseConversionApp: true,
-        binaryArithmeticApp: true,
-        complementCalculatorApp: true,
-      });
-    }
+    setappState({
+      ...appState,
+      programmingCalculator: true,
+      baseConversionApp: true,
+      binaryArithmeticApp: true,
+      complementCalculatorApp: true,
+    });
   };
 
   return (
@@ -132,44 +129,27 @@ const App = () => {
 
       <div className="componentContainer">
         <div
-          className="inputFormContainer"
-          style={{ display: appState.baseConversionApp ? "block" : "none" }}
+          className={`inputFormContainer ${
+            appState.baseConversionApp ? "hideComponent" : ""
+          }`}
         >
-          <div className="deleteIconStyle" onClick={removeBaseConversionApp}>
-            <div>
-              <i className="btn bi bi-x-square"></i>
-            </div>
-          </div>
-          <BaseConversion />
+          <BaseConversion handleClick={removeBaseConversionApp} />
         </div>
 
         <div
-          className="inputFormContainer"
-          style={{ display: appState.binaryArithmeticApp ? "block" : "none" }}
+          className={`inputFormContainer ${
+            appState.binaryArithmeticApp ? "hideComponent" : ""
+          }`}
         >
-          <div className="deleteIconStyle" onClick={removeBinaryArithmeticApp}>
-            <div>
-              <i className="btn bi bi-x-square "></i>
-            </div>
-          </div>
-          <BinaryArithmetic />
+          <BinaryArithmetic handleClick={removeBinaryArithmeticApp} />
         </div>
 
         <div
-          className="inputFormContainer"
-          style={{
-            display: appState.complementCalculatorApp ? "block" : "none",
-          }}
+          className={`inputFormContainer ${
+            appState.complementCalculatorApp ? "hideComponent" : ""
+          }`}
         >
-          <div
-            className="deleteIconStyle"
-            onClick={removeComplementCalculatorApp}
-          >
-            <div>
-              <i className="btn bi bi-x-square"></i>
-            </div>
-          </div>
-          <ComplementCalculator />
+          <ComplementCalculator handleClick={removeComplementCalculatorApp} />
         </div>
       </div>
     </div>

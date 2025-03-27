@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./Component.css";
 
-const BinaryArithmetic = () => {
+const BinaryArithmetic = (props) => {
   const [binaryArithmeticState, setbinaryArithmeticState] = useState({
     selectedOperator: "Add",
     answerName: "Sum",
@@ -239,6 +239,9 @@ const BinaryArithmetic = () => {
       <form className="inputFormBaseConversion">
         <div className="">
           <h3 className="appNameStyle">Binary Arithmetic</h3>
+          <div onClick={props.handleClick}>
+            <i className="btn bi bi-x-square"></i>
+          </div>
         </div>
         <div
           className=""

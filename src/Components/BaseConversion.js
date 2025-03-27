@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import SubmitButton from "./SubmitButton.js";
 import "./Component.css";
 
-const BaseConversion = () => {
+const BaseConversion = (props) => {
   const [baseConversionState, setbaseConversionState] = useState({
     userInput: "",
     baseId1: 2,
@@ -230,6 +230,9 @@ const BaseConversion = () => {
       <form className="inputFormBaseConversion">
         <div className="">
           <h3 className="appNameStyle">Base Conversion</h3>
+          <div onClick={props.handleClick}>
+            <i className="btn bi bi-x-square"></i>
+          </div>
         </div>
         <div
           className=""

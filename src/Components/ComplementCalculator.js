@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import SubmitButton from "./SubmitButton.js";
 import "./Component.css";
 
-const ComplementCalculator = () => {
+const ComplementCalculator = (props) => {
   const [complementCalculatorState, setcomplementCalculatorState] = useState({
     binaryNumber: "",
     complement1: "",
@@ -101,6 +101,9 @@ const ComplementCalculator = () => {
       <form className="inputFormBaseConversion">
         <div className="">
           <h3 className="appNameStyle">Complement Calculator</h3>
+          <div onClick={props.handleClick}>
+            <i className="btn bi bi-x-square"></i>
+          </div>
         </div>
         <div
           className="alert alert-primary"

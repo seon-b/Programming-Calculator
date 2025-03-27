@@ -1,25 +1,17 @@
-.appNameStyle {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 26px;
+* {
+  box-sizing: border-box;
+  margin: 0;
 }
 
-.inputFormContainer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.button {
+  outline-color: #ffd6e0;
+}
+.button:active {
+  border-color: black;
 }
 
-.inputFormBaseConversion {
-  padding: 2em;
-  border: solid 2px black;
-  border-radius: 5%;
-}
-
-.inputFormHr {
-  color: black;
-  border-top: 3px;
+.button:focus {
+  box-shadow: #ffd6e0;
 }
 
 .bi-x-square {
@@ -36,6 +28,10 @@
   justify-content: center;
 }
 
+.hideComponent {
+  visibility: hidden;
+}
+
 .navBarStyle {
   display: flex;
   flex-wrap: wrap;
@@ -48,17 +44,6 @@
 .navBarTitleText {
   font-size: 20px;
   font-weight: 600;
-}
-
-.btn {
-  outline-color: #ffd6e0;
-}
-.btn:active {
-  border-color: black;
-}
-
-.btn:focus {
-  box-shadow: #ffd6e0;
 }
 
 .radioButtonColor {
