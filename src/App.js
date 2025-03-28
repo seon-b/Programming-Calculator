@@ -64,13 +64,13 @@ const App = () => {
   };
 
   return (
-    <div className="appContainer">
+    <>
       <nav className="navBarStyle">
         <section className="navBarItem1">
           <div className="navBarLogo">
             <button
               id="programmingCalculatorId"
-              className=""
+              className="button"
               onClick={displayHomepage}
             >
               <h1>
@@ -84,7 +84,7 @@ const App = () => {
           <div className="navBarLink">
             <button
               id="baseConversionApp"
-              className=""
+              className="button"
               onClick={displayBaseConversionApp}
             >
               <h2>
@@ -98,7 +98,7 @@ const App = () => {
           <div className="navBarLink">
             <button
               id="baseConversionApp"
-              className=""
+              className="button"
               onClick={displayBinaryArithmeticApp}
             >
               <h2>
@@ -112,7 +112,7 @@ const App = () => {
           <div className="navBarLink">
             <button
               id="complementCalculatorApp"
-              className=""
+              className="button"
               onClick={displayComplementCalculatorApp}
             >
               {" "}
@@ -152,7 +152,7 @@ const App = () => {
           <ComplementCalculator handleClick={removeComplementCalculatorApp} />
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
