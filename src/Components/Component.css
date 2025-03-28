@@ -3,9 +3,19 @@
   margin: 0;
 }
 
+.bi-x-square {
+  color: hsl(209, 100%, 71%);
+  font-size: 1em;
+}
+
+.bi-x-square:hover {
+  color: #ffd6e0;
+}
+
 .button {
   outline-color: #ffd6e0;
 }
+
 .button:active {
   border-color: black;
 }
@@ -14,13 +24,19 @@
   box-shadow: #ffd6e0;
 }
 
-.bi-x-square {
-  color: hsl(209, 100%, 71%);
-  font-size: 1em;
+.component {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 300px;
 }
 
-.bi-x-square:hover {
-  color: #ffd6e0;
+.componentContainer {
+  align-items: stretch;
+  display: grid;
+  gap: 0.75em;
+  grid-template-columns: repeat(3, 1fr);
+  padding: 1em;
 }
 
 .deleteIconStyle {
@@ -54,4 +70,10 @@
   background-color: hsl(209, 100%, 71%);
   border-color: hsl(209, 100%, 71%);
   /* border-color: black; */
+}
+
+@media (max-width: 750px) {
+  .componentContainer {
+    grid-template-columns: 1fr;
+  }
 }

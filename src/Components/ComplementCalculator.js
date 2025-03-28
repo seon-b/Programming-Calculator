@@ -97,8 +97,8 @@ const ComplementCalculator = (props) => {
   }, [isErrorPresent]);
 
   return (
-    <div className="inputFormContainer">
-      <form className="inputFormBaseConversion">
+    <>
+      <form className="component inputFormBaseConversion">
         <div className="">
           <h3 className="appNameStyle">Complement Calculator</h3>
           <div onClick={props.handleClick}>
@@ -153,7 +153,7 @@ const ComplementCalculator = (props) => {
         </div>
         <SubmitButton inputName="Convert" handleClick={calculateComplements} />
       </form>
-    </div>
+    </>
   );
 };
 

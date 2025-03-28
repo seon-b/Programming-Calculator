@@ -235,8 +235,8 @@ const BinaryArithmetic = (props) => {
   };
 
   return (
-    <div className="inputFormContainer">
-      <form className="inputFormBaseConversion">
+    <>
+      <form className="component inputFormBaseConversion">
         <div className="">
           <h3 className="appNameStyle">Binary Arithmetic</h3>
           <div onClick={props.handleClick}>
@@ -347,7 +347,7 @@ const BinaryArithmetic = (props) => {
           </button>
         </div>
       </form>
-    </div>
+    </>
   );
 };
 

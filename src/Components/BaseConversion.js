@@ -226,8 +226,8 @@ const BaseConversion = (props) => {
   };
 
   return (
-    <div className="inputFormContainer">
-      <form className="inputFormBaseConversion">
+    <>
+      <form className="component inputFormBaseConversion">
         <div className="">
           <h3 className="appNameStyle">Base Conversion</h3>
           <div onClick={props.handleClick}>
@@ -311,7 +311,7 @@ const BaseConversion = (props) => {
           handleClick={convertInputToSelectedBase}
         />
       </form>
-    </div>
+    </>
   );
 };
 
