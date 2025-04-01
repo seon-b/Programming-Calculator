@@ -227,44 +227,21 @@ const BaseConversion = (props) => {
 
   return (
     <>
-      <form className="component inputFormBaseConversion">
+      <form className="component">
+        <div className="componentTitle">
+          <h3 className="componentName">Base Conversion</h3>
+          <span onClick={props.handleClick}>
+            <i className="bi bi-x-square"></i>
+          </span>
+        </div>
+
         <div className="">
-          <h3 className="appNameStyle">Base Conversion</h3>
-          <div onClick={props.handleClick}>
-            <i className="btn bi bi-x-square"></i>
+          <div>
+            <label htmlFor="selectForm">Convert From</label>
           </div>
-        </div>
-        <div
-          className=""
-          style={{ display: isErrorPresent ? "block" : "none" }}
-          role="alert"
-        >
-          {errorStatement}
-        </div>
-
-        <div className="">
-          <label htmlFor="selectForm">Convert From</label>
-          <select onChange={selectAChoice1} className="" id="selectForm">
-            <option id="option1" value="Base 2 (Binary)">
-              Base 2 (Binary)
-            </option>
-            <option id="option2" value="Base 8 (Octal)">
-              Base 8 (Octal)
-            </option>
-            <option id="option3" value="Base 10 (Decimal)">
-              Base 10 (Decimal)
-            </option>
-            <option id="option4" value="Base 16 (Hexadecimal)">
-              Base 16 (Hexadecimal)
-            </option>
-          </select>
-        </div>
-
-        <div className="">
-          <label htmlFor="selectForm">Convert To</label>
           <select
-            onChange={selectAChoice2}
-            className="form-control"
+            onChange={selectAChoice1}
+            className="inputFieldWidth"
             id="selectForm"
           >
             <option id="option1" value="Base 2 (Binary)">
@@ -283,10 +260,36 @@ const BaseConversion = (props) => {
         </div>
 
         <div className="">
-          <label htmlFor="inputField1">Number</label>
+          <div>
+            <label htmlFor="selectForm">Convert To</label>
+          </div>
+          <select
+            onChange={selectAChoice2}
+            className="inputFieldWidth"
+            id="selectForm"
+          >
+            <option id="option1" value="Base 2 (Binary)">
+              Base 2 (Binary)
+            </option>
+            <option id="option2" value="Base 8 (Octal)">
+              Base 8 (Octal)
+            </option>
+            <option id="option3" value="Base 10 (Decimal)">
+              Base 10 (Decimal)
+            </option>
+            <option id="option4" value="Base 16 (Hexadecimal)">
+              Base 16 (Hexadecimal)
+            </option>
+          </select>
+        </div>
+
+        <div className="">
+          <div>
+            <label htmlFor="inputField1">Number</label>
+          </div>
           <input
             type="text"
-            className="form-control"
+            className="inputFieldWidth"
             id="inputfield1"
             onChange={getUserInput}
           />
@@ -294,9 +297,11 @@ const BaseConversion = (props) => {
         <div className="">
           <div className="">
             <div className="outputAreastyle">
-              <label htmlFor="conversionOutputArea">Conversion</label>
+              <div>
+                <label htmlFor="conversionOutputArea">Conversion</label>
+              </div>
               <textarea
-                className=""
+                className="inputFieldWidth"
                 id="conversionOutputArea"
                 rows="2"
                 value={baseConversionState.baseConversionOutput}

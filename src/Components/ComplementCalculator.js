@@ -99,25 +99,20 @@ const ComplementCalculator = (props) => {
   return (
     <>
       <form className="component inputFormBaseConversion">
-        <div className="">
-          <h3 className="appNameStyle">Complement Calculator</h3>
-          <div onClick={props.handleClick}>
-            <i className="btn bi bi-x-square"></i>
-          </div>
-        </div>
-        <div
-          className="alert alert-primary"
-          style={{ display: isErrorPresent ? "block" : "none" }}
-          role="alert"
-        >
-          {errorStatement}
+        <div className="componentTitle">
+          <h3 className="componentName">Complement</h3>
+          <span onClick={props.handleClick}>
+            <i className="bi bi-x-square"></i>
+          </span>
         </div>
 
         <div className="form-group mt-2">
-          <label htmlFor="inputField1">Binary Number</label>
+          <div>
+            <label htmlFor="inputField1">Binary Number</label>
+          </div>
           <input
             type="text"
-            className="form-control"
+            className="inputFieldWidth"
             id="inputfield1"
             onChange={getUserInput}
           />
@@ -126,9 +121,11 @@ const ComplementCalculator = (props) => {
         <div className="">
           <div className="">
             <div className="outputAreastyle">
-              <label htmlFor="conversionOutputArea">1's Complement</label>
+              <div>
+                <label htmlFor="conversionOutputArea">1's Complement</label>
+              </div>
               <textarea
-                className=""
+                className="inputFieldWidth"
                 id="conversionOutputArea"
                 rows="2"
                 value={complementCalculatorState.complement1}
@@ -140,9 +137,11 @@ const ComplementCalculator = (props) => {
         <div className="">
           <div className="">
             <div className="outputAreastyle">
-              <label htmlFor="conversionOutputArea">2's Complement</label>
+              <div>
+                <label htmlFor="conversionOutputArea">2's Complement</label>
+              </div>
               <textarea
-                className=""
+                className="inputFieldWidth"
                 id="conversionOutputArea"
                 rows="2"
                 value={complementCalculatorState.complement2}

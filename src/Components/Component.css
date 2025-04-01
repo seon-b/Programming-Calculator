@@ -25,10 +25,15 @@
 }
 
 .component {
+  align-self: center;
+  border: 2px solid black;
+  border-radius: 0.75em;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  padding: 1em;
   min-height: 300px;
+  width: 75%;
 }
 
 .componentContainer {
@@ -36,7 +41,17 @@
   display: grid;
   gap: 0.75em;
   grid-template-columns: repeat(3, 1fr);
-  padding: 1em;
+  /* padding: 1em; */
+}
+
+.componentName {
+  display: inline;
+}
+
+.componentTitle {
+  align-items: flex-end;
+  display: flex;
+  justify-content: space-between;
 }
 
 .deleteIconStyle {
@@ -44,8 +59,20 @@
   justify-content: center;
 }
 
+.errorComponent {
+}
+
 .hideComponent {
   visibility: hidden;
+}
+
+.inputFieldWidth {
+  width: 80%;
+}
+
+.inputFormContainer {
+  display: flex;
+  justify-content: center;
 }
 
 .navBarStyle {
@@ -66,14 +93,44 @@
   box-shadow: none;
 }
 
+.radioButtonContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.radioGroup {
+  align-items: center;
+  display: flex;
+}
+
 .submitButtonColor {
   background-color: hsl(209, 100%, 71%);
   border-color: hsl(209, 100%, 71%);
   /* border-color: black; */
 }
 
-@media (max-width: 750px) {
+@media (width <= 750px) {
   .componentContainer {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (width <= 768px) {
+  .component {
+    padding: 0.75em;
+  }
+
+  .inputFieldWidth {
+    width: 99%;
+  }
+
+  .navBarStyle {
+    display: flex;
+    /* flex-wrap: wrap; */
+    justify-content: center;
+    align-items: center;
+    font-size: 15px;
+    font-family: "Domine", serif;
   }
 }

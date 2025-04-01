@@ -237,97 +237,104 @@ const BinaryArithmetic = (props) => {
   return (
     <>
       <form className="component inputFormBaseConversion">
-        <div className="">
-          <h3 className="appNameStyle">Binary Arithmetic</h3>
-          <div onClick={props.handleClick}>
-            <i className="btn bi bi-x-square"></i>
-          </div>
-        </div>
-        <div
-          className=""
-          style={{ display: isErrorPresent ? "block" : "none" }}
-          role="alert"
-        >
-          {errorStatement}
+        <div className="componentTitle">
+          <h3 className="componentName">Arithmetic</h3>
+          <span onClick={props.handleClick}>
+            <i className="bi bi-x-square"></i>
+          </span>
         </div>
 
         <div className="">
-          <label htmlFor="inputField1">Binary Number</label>
+          <div>
+            <label htmlFor="inputField1">Binary Number</label>
+          </div>
           <input
             type="text"
-            className=""
+            className="inputFieldWidth"
             id="inputfield1"
             onChange={getInputData1}
           />
         </div>
         <div className="">
-          <label htmlFor="inputField1">Binary Number</label>
+          <div>
+            <label htmlFor="inputField1">Binary Number</label>
+          </div>
           <input
             type="text"
-            className="form-control"
+            className="inputFieldWidth"
             id="inputfield1"
             onChange={getInputData2}
           />
         </div>
 
         <div className="radioButtonContainer">
-          <label className="" htmlFor="inlineRadio1">
-            Add
-          </label>
-          <input
-            className="radioButtonColor"
-            onChange={changeSubmitButton1}
-            type="radio"
-            name="inlineRadioOptions"
-            id="inlineRadio1"
-            value="option1"
-          />
+          <span className="radioGroup">
+            <label className="" htmlFor="inlineRadio1">
+              Add
+            </label>
 
-          <label className="" htmlFor="inlineRadio2">
-            Subtract
-          </label>
-          <input
-            className="radioButtonColor"
-            onChange={changeSubmitButton2}
-            type="radio"
-            name="inlineRadioOptions"
-            id="inlineRadio2"
-            value="option2"
-          />
+            <input
+              className="radioButtonColor"
+              onChange={changeSubmitButton1}
+              type="radio"
+              name="inlineRadioOptions"
+              id="inlineRadio1"
+              value="option1"
+            />
+          </span>
+          <span className="radioGroup">
+            <label className="" htmlFor="inlineRadio2">
+              Subtract
+            </label>
 
-          <label className="" htmlFor="inlineRadio3">
-            Multiply
-          </label>
-          <input
-            className=" radioButtonColor"
-            onChange={changeSubmitButton3}
-            type="radio"
-            name="inlineRadioOptions"
-            id="inlineRadio3"
-            value="option3"
-          />
+            <input
+              className="radioButtonColor"
+              onChange={changeSubmitButton2}
+              type="radio"
+              name="inlineRadioOptions"
+              id="inlineRadio2"
+              value="option2"
+            />
+          </span>
+          <span className="radioGroup">
+            <label className="" htmlFor="inlineRadio3">
+              Multiply
+            </label>
 
-          <label className="" htmlFor="inlineRadio4">
-            Divide
-          </label>
-          <input
-            className=""
-            onChange={changeSubmitButton4}
-            type="radio"
-            name="inlineRadioOptions"
-            id="inlineRadio4"
-            value="option4"
-          />
+            <input
+              className="radioButtonColor"
+              onChange={changeSubmitButton3}
+              type="radio"
+              name="inlineRadioOptions"
+              id="inlineRadio3"
+              value="option3"
+            />
+          </span>
+          <span className="radioGroup">
+            <label className="" htmlFor="inlineRadio4">
+              Divide
+            </label>
+            <input
+              className=""
+              onChange={changeSubmitButton4}
+              type="radio"
+              name="inlineRadioOptions"
+              id="inlineRadio4"
+              value="option4"
+            />{" "}
+          </span>
         </div>
 
         <div className="">
           <div className="">
             <div className="outputAreastyle">
-              <label htmlFor="conversionOutputArea">
-                {binaryArithmeticState.answerName}
-              </label>
+              <div>
+                <label htmlFor="conversionOutputArea">
+                  {binaryArithmeticState.answerName}
+                </label>
+              </div>
               <textarea
-                className="form-control"
+                className="inputFieldWidth"
                 id="conversionOutputArea"
                 rows="2"
                 value={binaryArithmeticState.answer}
