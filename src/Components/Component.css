@@ -41,7 +41,6 @@
   display: grid;
   gap: 0.75em;
   grid-template-columns: repeat(3, 1fr);
-  /* padding: 1em; */
 }
 
 .componentName {
@@ -97,6 +96,7 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  width: 150px;
 }
 
 .radioGroup {
@@ -107,7 +107,6 @@
 .submitButtonColor {
   background-color: hsl(209, 100%, 71%);
   border-color: hsl(209, 100%, 71%);
-  /* border-color: black; */
 }
 
 @media (width <= 750px) {
@@ -127,7 +126,6 @@
 
   .navBarStyle {
     display: flex;
-    /* flex-wrap: wrap; */
     justify-content: center;
     align-items: center;
     font-size: 15px;
