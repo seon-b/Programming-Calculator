@@ -41,6 +41,7 @@
   display: grid;
   gap: 0.75em;
   grid-template-columns: repeat(3, 1fr);
+  margin-top: 4em;
 }
 
 .componentName {
@@ -65,13 +66,19 @@
   visibility: hidden;
 }
 
-.inputFieldWidth {
-  width: 80%;
-}
-
 .inputFormContainer {
   display: flex;
   justify-content: center;
+}
+
+.inputFieldMargin {
+  margin-bottom: 1em;
+}
+
+.inputFieldPadding {
+}
+.inputFieldWidth {
+  width: 80%;
 }
 
 .navBarStyle {
@@ -96,6 +103,8 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  margin-top: 16px;
+  margin-bottom: 17px;
   width: 150px;
 }
 
@@ -130,5 +139,24 @@
     align-items: center;
     font-size: 15px;
     font-family: "Domine", serif;
+  }
+
+  .radioButtonContainer {
+    margin-top: 13px;
+  }
+}
+
+@media (width >= 1000px) {
+  .inputFieldWidth {
+    width: 100%;
+  }
+
+  .component {
+    padding: 1.5em;
+  }
+
+  .radioButtonContainer {
+    margin-top: 17px;
+    width: 100%;
   }
 }

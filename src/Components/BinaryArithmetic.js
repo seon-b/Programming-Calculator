@@ -237,14 +237,14 @@ const BinaryArithmetic = (props) => {
   return (
     <>
       <form className="component inputFormBaseConversion">
-        <div className="componentTitle">
+        <div className="componentTitle inputFieldMargin">
           <h3 className="componentName">Arithmetic</h3>
           <span onClick={props.handleClick}>
             <i className="bi bi-x-square"></i>
           </span>
         </div>
 
-        <div className="">
+        <div className="inputFieldMargin">
           <div>
             <label htmlFor="inputField1">Binary Number</label>
           </div>
@@ -255,7 +255,7 @@ const BinaryArithmetic = (props) => {
             onChange={getInputData1}
           />
         </div>
-        <div className="">
+        <div className="inputFieldMargin">
           <div>
             <label htmlFor="inputField1">Binary Number</label>
           </div>
@@ -267,7 +267,7 @@ const BinaryArithmetic = (props) => {
           />
         </div>
 
-        <div className="radioButtonContainer">
+        <div className="radioButtonContainer inputFieldMargin">
           <span className="radioGroup">
             <label className="" htmlFor="inlineRadio1">
               Add
@@ -325,7 +325,7 @@ const BinaryArithmetic = (props) => {
           </span>
         </div>
 
-        <div className="">
+        <div className="inputFieldMargin">
           <div className="">
             <div className="outputAreastyle">
               <div>

@@ -99,7 +99,7 @@ const ComplementCalculator = (props) => {
   return (
     <>
       <form className="component inputFormBaseConversion">
-        <div className="componentTitle">
+        <div className="componentTitle inputFieldMargin">
           <h3 className="componentName">Complement</h3>
           <span onClick={props.handleClick}>
             <i className="bi bi-x-square"></i>
@@ -118,7 +118,7 @@ const ComplementCalculator = (props) => {
           />
         </div>
 
-        <div className="">
+        <div className="inputFieldMargin">
           <div className="">
             <div className="outputAreastyle">
               <div>
@@ -134,7 +134,7 @@ const ComplementCalculator = (props) => {
             </div>
           </div>
         </div>
-        <div className="">
+        <div className="inputFieldMargin">
           <div className="">
             <div className="outputAreastyle">
               <div>

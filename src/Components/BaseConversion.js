@@ -228,14 +228,14 @@ const BaseConversion = (props) => {
   return (
     <>
       <form className="component">
-        <div className="componentTitle">
+        <div className="componentTitle inputFieldMargin">
           <h3 className="componentName">Base Conversion</h3>
           <span onClick={props.handleClick}>
             <i className="bi bi-x-square"></i>
           </span>
         </div>
 
-        <div className="">
+        <div className="inputFieldMargin">
           <div>
             <label htmlFor="selectForm">Convert From</label>
           </div>
@@ -259,7 +259,7 @@ const BaseConversion = (props) => {
           </select>
         </div>
 
-        <div className="">
+        <div className="inputFieldMargin">
           <div>
             <label htmlFor="selectForm">Convert To</label>
           </div>
@@ -283,7 +283,7 @@ const BaseConversion = (props) => {
           </select>
         </div>
 
-        <div className="">
+        <div className="inputFieldMargin">
           <div>
             <label htmlFor="inputField1">Number</label>
           </div>
@@ -294,7 +294,7 @@ const BaseConversion = (props) => {
             onChange={getUserInput}
           />
         </div>
-        <div className="">
+        <div className="inputFieldMargin">
           <div className="">
             <div className="outputAreastyle">
               <div>
