@@ -250,7 +250,7 @@ const BinaryArithmetic = (props) => {
           </div>
           <input
             type="text"
-            className="inputFieldWidth"
+            className="inputFieldWidth  "
             id="inputfield1"
             onChange={getInputData1}
           />
@@ -261,7 +261,7 @@ const BinaryArithmetic = (props) => {
           </div>
           <input
             type="text"
-            className="inputFieldWidth"
+            className="inputFieldWidth  "
             id="inputfield1"
             onChange={getInputData2}
           />

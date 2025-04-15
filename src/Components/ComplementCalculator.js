@@ -117,36 +117,37 @@ const ComplementCalculator = (props) => {
             onChange={getUserInput}
           />
         </div>
-
-        <div className="inputFieldMargin">
-          <div className="">
-            <div className="outputAreastyle">
-              <div>
-                <label htmlFor="conversionOutputArea">1's Complement</label>
+        <div className="complementInputFieldGroupMargin">
+          <div className="inputFieldMargin">
+            <div className="">
+              <div className="outputAreastyle">
+                <div>
+                  <label htmlFor="conversionOutputArea">1's Complement</label>
+                </div>
+                <textarea
+                  className="inputFieldWidth"
+                  id="conversionOutputArea"
+                  rows="2"
+                  value={complementCalculatorState.complement1}
+                  disabled
+                ></textarea>
               </div>
-              <textarea
-                className="inputFieldWidth"
-                id="conversionOutputArea"
-                rows="2"
-                value={complementCalculatorState.complement1}
-                disabled
-              ></textarea>
             </div>
           </div>
-        </div>
-        <div className="inputFieldMargin">
-          <div className="">
-            <div className="outputAreastyle">
-              <div>
-                <label htmlFor="conversionOutputArea">2's Complement</label>
+          <div className="inputFieldMargin">
+            <div className="">
+              <div className="outputAreastyle">
+                <div>
+                  <label htmlFor="conversionOutputArea">2's Complement</label>
+                </div>
+                <textarea
+                  className="inputFieldWidth"
+                  id="conversionOutputArea"
+                  rows="2"
+                  value={complementCalculatorState.complement2}
+                  disabled
+                ></textarea>
               </div>
-              <textarea
-                className="inputFieldWidth"
-                id="conversionOutputArea"
-                rows="2"
-                value={complementCalculatorState.complement2}
-                disabled
-              ></textarea>
             </div>
           </div>
         </div>
