@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import BaseConversion from "./Components/BaseConversion";
 import ComplementCalculator from "./Components/ComplementCalculator";
 import BinaryArithmetic from "./Components/BinaryArithmetic";
+import "./App.css";
 import "./Components/Component.css";
 
 const App = () => {

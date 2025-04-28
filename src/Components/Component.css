@@ -28,10 +28,11 @@
 
 .component {
   align-self: center;
+  background-color: #ffd6e0;
   box-sizing: content-box;
   border: 2px solid black;
   border-radius: 0.75em;
-  box-shadow: 10px 5px 5px lightgray;
+  /* box-shadow: 10px 5px 5px lightgray; */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
