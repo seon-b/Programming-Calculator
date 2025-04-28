@@ -1,6 +1,6 @@
 {
-  "name": "base-conversion",
-  "version": "0.1.0",
+  "name": "programming-calculator",
+  "version": "0.2.0",
   "private": true,
   "source": "public/index.html",
   "dependencies": {
