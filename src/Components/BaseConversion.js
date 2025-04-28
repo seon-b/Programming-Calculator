@@ -241,7 +241,7 @@ const BaseConversion = (props) => {
           </div>
           <select
             onChange={selectAChoice1}
-            className="inputFieldWidth"
+            className="inputFieldWidth inputFieldPadding"
             id="selectForm"
           >
             <option id="option1" value="Base 2 (Binary)">
@@ -265,7 +265,7 @@ const BaseConversion = (props) => {
           </div>
           <select
             onChange={selectAChoice2}
-            className="inputFieldWidth"
+            className="inputFieldWidth inputFieldPadding"
             id="selectForm"
           >
             <option id="option1" value="Base 2 (Binary)">
@@ -289,7 +289,7 @@ const BaseConversion = (props) => {
           </div>
           <input
             type="text"
-            className="inputFieldWidth"
+            className="inputFieldWidth inputFieldPadding"
             id="inputfield1"
             onChange={getUserInput}
           />
@@ -303,7 +303,7 @@ const BaseConversion = (props) => {
               <textarea
                 className="inputFieldWidth"
                 id="conversionOutputArea"
-                rows="2"
+                rows="4"
                 value={baseConversionState.baseConversionOutput}
                 disabled
               ></textarea>
