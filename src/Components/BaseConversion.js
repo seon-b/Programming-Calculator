@@ -303,7 +303,7 @@ const BaseConversion = (props) => {
               <textarea
                 className="inputFieldWidth"
                 id="conversionOutputArea"
-                rows="4"
+                rows="3"
                 value={baseConversionState.baseConversionOutput}
                 disabled
               ></textarea>

@@ -112,7 +112,7 @@ const ComplementCalculator = (props) => {
           </div>
           <input
             type="text"
-            className="inputFieldWidth"
+            className="inputFieldWidth inputFieldPadding"
             id="inputfield1"
             onChange={getUserInput}
           />
@@ -127,7 +127,7 @@ const ComplementCalculator = (props) => {
                 <textarea
                   className="inputFieldWidth"
                   id="conversionOutputArea"
-                  rows="2"
+                  rows="3"
                   value={complementCalculatorState.complement1}
                   disabled
                 ></textarea>
@@ -143,7 +143,7 @@ const ComplementCalculator = (props) => {
                 <textarea
                   className="inputFieldWidth"
                   id="conversionOutputArea"
-                  rows="2"
+                  rows="3"
                   value={complementCalculatorState.complement2}
                   disabled
                 ></textarea>
