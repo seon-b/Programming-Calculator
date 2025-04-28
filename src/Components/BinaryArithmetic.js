@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import SubmitButton from "./SubmitButton";
 import "./Component.css";
 
 const BinaryArithmetic = (props) => {
@@ -345,13 +346,10 @@ const BinaryArithmetic = (props) => {
         </div>
 
         <div className="submitButtonComponent">
-          <button
-            type="button"
-            className="submitButtonColor"
-            onClick={calculate}
-          >
-            {binaryArithmeticState.selectedOperator}
-          </button>
+          <SubmitButton
+            inputName={binaryArithmeticState.selectedOperator}
+            handleClick={calculate}
+          />
         </div>
       </form>
     </>

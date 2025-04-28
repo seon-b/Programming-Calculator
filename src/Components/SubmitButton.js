@@ -22,7 +22,7 @@ class SubmitButton extends Component {
       <div className="submitButtonComponent">
         <button
           type="button"
-          className="submitButtonColor"
+          className="button submitButtonColor"
           onClick={this.submitButtonFunction1}
         >
           {this.props.inputName}
