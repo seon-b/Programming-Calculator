@@ -316,7 +316,7 @@ const BinaryArithmetic = (props) => {
               Divide
             </label>
             <input
-              className=""
+              className="radioButtonColor"
               onChange={changeSubmitButton4}
               type="radio"
               name="inlineRadioOptions"
