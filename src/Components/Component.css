@@ -38,7 +38,7 @@
   background-color: #ffd6e0;
   box-sizing: content-box;
   border: 2px solid black;
-  border-radius: 0.75em;
+  border-radius: 1em;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
