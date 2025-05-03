@@ -6,23 +6,25 @@
 :root {
   --buttonColor: hsl(209, 100%, 71%);
   --buttonBorderColor: rgba(118, 118, 118, 0.3);
+  --componentColor: #ffd6e0;
   --inputFieldFocusColor: 0.25em solid lightpink;
 }
 
 .bi-x-square {
+  border-radius: 0.1em;
+  outline-offset: 4px;
   color: var(--buttonColor);
-  font-size: 1em;
+  font-size: 1.2em;
 }
 
 .bi-x-square:hover {
   color: white;
-  font-size: 1.2em;
+  outline-offset: 2px;
 }
 
 .button {
   border-radius: 0.5em;
   padding: 0.75em;
-  outline-color: #ffd6e0;
 }
 
 .button:active {
@@ -35,7 +37,7 @@
 
 .component {
   align-self: center;
-  background-color: #ffd6e0;
+  background-color: var(--componentColor);
   box-sizing: content-box;
   border: 2px solid black;
   border-radius: 1em;
@@ -143,6 +145,20 @@
   border-color: var(--buttonBorderColor);
   color: white;
   min-width: 6em;
+}
+
+.submitButtonColor:hover {
+  background-color: white;
+  color: #ffd6e0;
+  /* font-size: 0.8em; */
+}
+
+.submitButtonColor:active {
+  background-color: white;
+  border-color: var(--buttonBorderColor);
+  color: #ffd6e0;
+  outline: 4px solid lightpink;
+  outline-offset: 4px;
 }
 
 @media (width <= 750px) {
