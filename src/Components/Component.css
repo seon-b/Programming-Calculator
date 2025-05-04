@@ -83,6 +83,10 @@
   visibility: hidden;
 }
 
+input[type="radio"] {
+  accent-color: lightpink;
+}
+
 .inputFormContainer {
   display: flex;
   justify-content: center;
@@ -112,6 +116,7 @@
   align-items: center;
   font-size: 15px;
   font-family: "Domine", serif;
+  padding: 1em;
 }
 
 .navBarTitleText {
@@ -150,7 +155,6 @@
 .submitButtonColor:hover {
   background-color: white;
   color: #ffd6e0;
-  /* font-size: 0.8em; */
 }
 
 .submitButtonColor:active {

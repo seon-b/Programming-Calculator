@@ -71,11 +71,13 @@ const App = () => {
           <div className="navBarLogo">
             <button
               id="programmingCalculatorId"
-              className="button"
+              className="button navLinkStyle"
               onClick={displayHomepage}
             >
               <h1>
-                <i className="bi bi-calculator"></i>
+                <span className="navBarBrandIconStyle">
+                  <i className="bi bi-calculator"></i>
+                </span>
                 <span className="navBarTitleText">Programming Calculator</span>
               </h1>
             </button>
@@ -85,11 +87,13 @@ const App = () => {
           <div className="navBarLink">
             <button
               id="baseConversionApp"
-              className="button"
+              className="button navLinkStyle"
               onClick={displayBaseConversionApp}
             >
               <h2>
-                X<sup>n&nbsp;</sup>
+                <span className="iconStyle">
+                  X<sup>n&nbsp;</sup>
+                </span>
                 <span className="baseConversion">Base Conversion</span>
               </h2>
             </button>
@@ -99,11 +103,13 @@ const App = () => {
           <div className="navBarLink">
             <button
               id="baseConversionApp"
-              className="button"
+              className="button navLinkStyle"
               onClick={displayBinaryArithmeticApp}
             >
               <h2>
-                2<sup>n&nbsp;</sup>
+                <span className="iconStyle">
+                  2<sup>n&nbsp;</sup>
+                </span>
                 <span className="baseConversion">Binary Arithmetic</span>
               </h2>
             </button>
@@ -113,12 +119,14 @@ const App = () => {
           <div className="navBarLink">
             <button
               id="complementCalculatorApp"
-              className="button"
+              className="button navLinkStyle"
               onClick={displayComplementCalculatorApp}
             >
               {" "}
               <h2>
-                <i className="bi bi-plus-slash-minus"></i>&nbsp;
+                <span className="iconStyle">
+                  <i className="bi bi-plus-slash-minus"></i>&nbsp;
+                </span>
                 <span className="complementCalculator">
                   Complement Calculator
                 </span>

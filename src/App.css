@@ -1,3 +1,22 @@
 body {
   background-color: #90f1ef;
 }
+
+.iconStyle {
+  font-size: 1.5em;
+}
+
+.navBarBrandIconStyle {
+  font-size: 2em;
+}
+
+.navLinkStyle {
+  background-color: #90f1ef;
+  border-color: rgba(0, 0, 0, 0);
+}
+
+.navLinkStyle:active {
+  border: 2px solid black;
+  outline: 4px solid lightpink;
+  offset: 1px;
+}
