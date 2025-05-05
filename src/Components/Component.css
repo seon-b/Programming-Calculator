@@ -176,6 +176,10 @@ input[type="radio"] {
     padding: 0.75em;
   }
 
+  .hideComponent {
+    display: none;
+  }
+
   .inputFieldWidth {
     width: 99%;
   }
