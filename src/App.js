@@ -1,9 +1,11 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import BaseConversion from "./Components/BaseConversion";
 import ComplementCalculator from "./Components/ComplementCalculator";
 import BinaryArithmetic from "./Components/BinaryArithmetic";
+import ErrorComponent from "./Components/ErrorComponent";
 import "./App.css";
 import "./Components/Component.css";
+import { ValidationContext } from "./Contexts/ValidationContext";
 
 const App = () => {
   const [appState, setappState] = useState({
@@ -12,6 +14,8 @@ const App = () => {
     binaryArithmeticApp: true,
     complementCalculatorApp: true,
   });
+
+  const [validation, setValidation] = useContext(ValidationContext);
 
   // These functions will display and remove the app components from the homepage
 
@@ -135,6 +139,13 @@ const App = () => {
           </div>
         </section>
       </nav>
+
+      <div className="errorContainer">
+        <ErrorComponent
+          isErrorPresent={validation.isErrorPresent}
+          errorMessage={validation.errorMessage}
+        />
+      </div>
 
       <div className="componentContainer">
         <div
