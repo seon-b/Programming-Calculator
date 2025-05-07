@@ -7,6 +7,7 @@
   --errorColor: hsl(209, 100%, 71%);
   --errorTextColor: hsl(0, 0%, 23%);
 }
+
 body {
   background-color: #90f1ef;
   font-family: "Domine", serif;
