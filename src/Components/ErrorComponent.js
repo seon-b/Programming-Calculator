@@ -1,15 +1,17 @@
 import React from "react";
 
 const ErrorComponent = (props) => {
+  const { isErrorPresent, errorMessage } = props;
+
   return (
     <>
       <div
         className={`errorComponent ${
-          props.isErrorPresent ? "" : "hideComponent"
+          isErrorPresent === true ? "displayError" : ""
         }`}
         role="alert"
       >
-        {props.errorStatement}
+        {isErrorPresent === true ? errorMessage : ""}
       </div>
     </>
   );

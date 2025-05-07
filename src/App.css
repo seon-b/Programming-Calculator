@@ -3,9 +3,33 @@
   src: url("../fonts/Domine-Bold.ttf") format("tff");
 }
 
+:root {
+  --errorColor: hsl(209, 100%, 71%);
+  --errorTextColor: hsl(0, 0%, 23%);
+}
 body {
   background-color: #90f1ef;
-  font-family: "Domine";
+  font-family: "Domine", serif;
+}
+
+.displayError {
+  background-color: var(--errorColor);
+  color: var(--errorTextColor);
+  visibility: visible;
+}
+
+.errorComponent {
+  align-items: center;
+  border-radius: 0.75em;
+  display: flex;
+  height: 50px;
+  justify-content: center;
+  width: 20em;
+}
+
+.errorContainer {
+  display: flex;
+  justify-content: center;
 }
 
 .iconStyle {
@@ -17,7 +41,7 @@ body {
 }
 
 nav .button {
-  font-family: "Domine";
+  font-family: "Domine", serif;
 }
 
 .navLinkStyle {
