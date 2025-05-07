@@ -1,5 +1,11 @@
+@font-face {
+  font-family: "Domine";
+  src: url("../fonts/Domine-Bold.ttf") format("tff");
+}
+
 body {
   background-color: #90f1ef;
+  font-family: "Domine";
 }
 
 .iconStyle {
@@ -8,6 +14,10 @@ body {
 
 .navBarBrandIconStyle {
   font-size: 2em;
+}
+
+nav .button {
+  font-family: "Domine";
 }
 
 .navLinkStyle {
