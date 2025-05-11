@@ -4,7 +4,7 @@ Programming Calculator is an application that allows users to perform several ca
 
 ## Description
 
-Programming Calculator is a frontend application built using [Reactjs](https://react.dev/). This application allows users to convert between binary, octal, decimal, and hexadecimal bases. In addition, users can also calculate the one's and two's complement of a binary number,and add, subtract, multiply, and divide, binary numbers. Components only work with integers currently.
+Programming Calculator is a frontend application built using [Reactjs](https://react.dev/). It uses the [Domine](https://fonts.google.com/specimen/Domine) and [Roboto](https://fonts.google.com/specimen/Roboto) google fonts and [bootstrap icons](https://icons.getbootstrap.com/). This application allows users to convert between binary, octal, decimal, and hexadecimal bases. In addition, users can also calculate the one's and two's complement of a binary number,and add, subtract, multiply, and divide, binary numbers. Components only work with integers currently.
 
 ### Base Conversion Component:
 
