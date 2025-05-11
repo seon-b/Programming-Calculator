@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import SubmitButton from "./SubmitButton.js";
 import "./Component.css";
+import { ErrorContext } from "../Contexts/ErrorContext.js";
 
 const ComplementCalculator = (props) => {
   const [complementCalculatorState, setcomplementCalculatorState] = useState({
@@ -9,8 +10,7 @@ const ComplementCalculator = (props) => {
     complement2: "",
   });
 
-  const [errorStatement, seterrorStatement] = useState("Error!");
-  const [isErrorPresent, setisErrorPresent] = useState(false);
+  const [error, setError] = useContext(ErrorContext);
 
   const getUserInput = (e) => {
     setcomplementCalculatorState({
@@ -43,6 +43,26 @@ const ComplementCalculator = (props) => {
     let binaryNumberArray = [];
     let binaryNumberInverse = "";
 
+    if (!complementCalculatorState.binaryNumber) {
+      setError((currentState) => ({
+        ...currentState,
+        errorMessage: "Input fields cannot be empty",
+      }));
+      handleError();
+
+      return;
+    }
+
+    if (complementCalculatorState.binaryNumber.length > 8) {
+      setError((currentState) => ({
+        ...currentState,
+        errorMessage: "Numbers cannot be more than 8 digits",
+      }));
+      handleError();
+
+      return;
+    }
+
     let isBinaryNumValid = validateBinaryInputs();
 
     if (isBinaryNumValid === true) {
@@ -67,7 +87,10 @@ const ComplementCalculator = (props) => {
         setComplement1: "",
         setComplement2: "",
       });
-      seterrorStatement("Error, invalid binary number");
+      setError((currentState) => ({
+        ...currentState,
+        errorMessage: "Error, invalid binary number",
+      }));
       handleError();
     }
 
@@ -86,15 +109,15 @@ const ComplementCalculator = (props) => {
   };
 
   const handleError = () => {
-    setisErrorPresent(true);
+    setError((currentState) => ({ ...currentState, isErrorPresent: true }));
   };
 
-  //Displays error message and removes it after a few seconds
   useEffect(() => {
-    setTimeout(() => {
-      setisErrorPresent(false);
+    let timerId = setTimeout(() => {
+      setError((currentState) => ({ ...currentState, isErrorPresent: false }));
     }, 2000);
-  }, [isErrorPresent]);
+    return () => clearTimeout(timerId);
+  }, [error]);
 
   return (
     <>

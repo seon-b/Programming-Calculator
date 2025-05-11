@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import SubmitButton from "./SubmitButton";
 import "./Component.css";
+import { ErrorContext } from "../Contexts/ErrorContext";
 
 const BinaryArithmetic = (props) => {
   const [binaryArithmeticState, setbinaryArithmeticState] = useState({
@@ -12,10 +13,8 @@ const BinaryArithmetic = (props) => {
     negativeDifference: "",
   });
 
-  const [errorStatement, seterrorStatement] = useState("");
-  const [isErrorPresent, setisErrorPresent] = useState(false);
+  const [error, setError] = useContext(ErrorContext);
 
-  // These functions are passed as props to modify the text in the SubmitButton
   const changeSubmitButton1 = () => {
     setbinaryArithmeticState({
       ...binaryArithmeticState,
@@ -76,18 +75,15 @@ const BinaryArithmetic = (props) => {
   };
 
   const handleError = () => {
-    setisErrorPresent(true);
+    setError((currentState) => ({ ...currentState, isErrorPresent: true }));
   };
 
-  //Displays error message and removes it after a few seconds
   useEffect(() => {
-    setTimeout(() => {
-      setisErrorPresent(false);
+    let timerId = setTimeout(() => {
+      setError((currentState) => ({ ...currentState, isErrorPresent: false }));
     }, 2000);
-  }, [isErrorPresent]);
-
-  //Each function performs the indicated operation in binary and converts the answer into a string and sets the state of the answer,
-  //and answerLength
+    return () => clearTimeout(timerId);
+  }, [error]);
 
   const addBinaryNumber = () => {
     let num1 = parseInt(binaryArithmeticState.binaryNumber1, 2);
@@ -192,6 +188,32 @@ const BinaryArithmetic = (props) => {
     let areInputsValid = false;
     areInputsValid = validateBinaryInputs();
 
+    if (
+      !binaryArithmeticState.binaryNumber1 ||
+      !binaryArithmeticState.binaryNumber2
+    ) {
+      setError((currentState) => ({
+        ...currentState,
+        errorMessage: "Input fields cannot be empty",
+      }));
+      handleError();
+
+      return;
+    }
+
+    if (
+      binaryArithmeticState.binaryNumber1.length > 8 ||
+      binaryArithmeticState.binaryNumber2.length > 8
+    ) {
+      setError((currentState) => ({
+        ...currentState,
+        errorMessage: "Numbers cannot be more than 8 digits",
+      }));
+      handleError();
+
+      return;
+    }
+
     if (areInputsValid === true) {
       if (binaryArithmeticState.selectedOperator === "Add") {
         addBinaryNumber();
@@ -205,7 +227,10 @@ const BinaryArithmetic = (props) => {
       }
     } else {
       setbinaryArithmeticState({ ...binaryArithmeticState, answer: "" });
-      seterrorStatement("Error, invalid binary number");
+      setError((currentState) => ({
+        ...currentState,
+        errorMessage: "Error, invalid binary number",
+      }));
       handleError();
     }
   };

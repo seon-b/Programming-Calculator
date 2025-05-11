@@ -102,9 +102,10 @@ const BaseConversion = (props) => {
   };
 
   useEffect(() => {
-    setTimeout(() => {
+    let timerId = setTimeout(() => {
       setError((currentState) => ({ ...currentState, isErrorPresent: false }));
-    }, 3000);
+    }, 2000);
+    return () => clearTimeout(timerId);
   }, [error]);
 
   const convertInputToSelectedBase = (
@@ -118,6 +119,26 @@ const BaseConversion = (props) => {
     inputValue = baseConversionState.userInput;
     currentBase = baseConversionState.baseId1;
     convertToBase = baseConversionState.baseId2;
+
+    if (!inputValue) {
+      setError((currentState) => ({
+        ...currentState,
+        errorMessage: "Input fields cannot be empty",
+      }));
+      handleError();
+
+      return;
+    }
+
+    if (inputValue.length > 8) {
+      setError((currentState) => ({
+        ...currentState,
+        errorMessage: "Numbers cannot be more than 8 digits",
+      }));
+      handleError();
+
+      return;
+    }
 
     const convert = () => {
       if (convertToBase === 2) {
