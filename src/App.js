@@ -5,7 +5,7 @@ import BinaryArithmetic from "./Components/BinaryArithmetic";
 import ErrorComponent from "./Components/ErrorComponent";
 import "./App.css";
 import "./Components/Component.css";
-import { ValidationContext } from "./Contexts/ValidationContext";
+import { ErrorContext } from "./Contexts/ErrorContext";
 
 const App = () => {
   const [appState, setappState] = useState({
@@ -15,7 +15,7 @@ const App = () => {
     complementCalculatorApp: true,
   });
 
-  const [validation, setValidation] = useContext(ValidationContext);
+  const [error, setError] = useContext(ErrorContext);
 
   // These functions will display and remove the app components from the homepage
 
@@ -142,8 +142,8 @@ const App = () => {
 
       <div className="errorContainer">
         <ErrorComponent
-          isErrorPresent={validation.isErrorPresent}
-          errorMessage={validation.errorMessage}
+          isErrorPresent={error.isErrorPresent}
+          errorMessage={error.errorMessage}
         />
       </div>
 

@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import SubmitButton from "./SubmitButton.js";
 import "./Component.css";
+import { ErrorContext } from "../Contexts/ErrorContext.js";
 
 const BaseConversion = (props) => {
   const [baseConversionState, setbaseConversionState] = useState({
@@ -11,8 +12,7 @@ const BaseConversion = (props) => {
     isErrorPresent: false,
   });
 
-  const [errorStatement, seterrorStatement] = useState("");
-  const [isErrorPresent, setisErrorPresent] = useState(false);
+  const [error, setError] = useContext(ErrorContext);
 
   const getUserInput = (e) => {
     setbaseConversionState({
@@ -23,16 +23,12 @@ const BaseConversion = (props) => {
 
   const selectAChoice1 = (e) => {
     if ("Base 2 (Binary)" === e.target.value) {
-      //  setbaseId1(2);
       setbaseConversionState({ ...baseConversionState, baseId1: 2 });
     } else if ("Base 8 (Octal)" === e.target.value) {
-      //  setbaseId1(8);
       setbaseConversionState({ ...baseConversionState, baseId1: 8 });
     } else if ("Base 10 (Decimal)" === e.target.value) {
-      //  setbaseId1(10);
       setbaseConversionState({ ...baseConversionState, baseId1: 10 });
     } else if ("Base 16 (Hexadecimal)" === e.target.value) {
-      // setbaseId1(16);
       setbaseConversionState({ ...baseConversionState, baseId1: 16 });
     } else {
     }
@@ -40,22 +36,20 @@ const BaseConversion = (props) => {
 
   const selectAChoice2 = (e) => {
     if ("Base 2 (Binary)" === e.target.value) {
-      //  setbaseId2(2);
       setbaseConversionState({ ...baseConversionState, baseId2: 2 });
     } else if ("Base 8 (Octal)" === e.target.value) {
-      // setbaseId2(8);
       setbaseConversionState({ ...baseConversionState, baseId2: 8 });
     } else if ("Base 10 (Decimal)" === e.target.value) {
-      //  setbaseId2(10);
       setbaseConversionState({ ...baseConversionState, baseId2: 10 });
     } else if ("Base 16 (Hexadecimal)" === e.target.value) {
-      //  setbaseId2(16);
       setbaseConversionState({ ...baseConversionState, baseId2: 16 });
     } else {
     }
   };
-  //regex used to validate inputs limit inputs to 1 bit minimum and 8 bit maximum
+
   const validateBinaryInputs = () => {
+    //regex used to validate inputs limit inputs to 1 bit minimum and 8 bit maximum
+
     let regex = /(^[0-1]{1,8})$/;
 
     const isInputValid1 = regex.test(baseConversionState.userInput);
@@ -102,17 +96,16 @@ const BaseConversion = (props) => {
       return false;
     }
   };
-  //displays the error message for 1 second
+
   const handleError = () => {
-    setisErrorPresent(true);
+    setError((currentState) => ({ ...currentState, isErrorPresent: true }));
   };
 
-  //Displays error message and removes it after a few seconds
   useEffect(() => {
     setTimeout(() => {
-      setisErrorPresent(false);
-    }, 2000);
-  }, [isErrorPresent]);
+      setError((currentState) => ({ ...currentState, isErrorPresent: false }));
+    }, 3000);
+  }, [error]);
 
   const convertInputToSelectedBase = (
     inputValue,
@@ -126,7 +119,6 @@ const BaseConversion = (props) => {
     currentBase = baseConversionState.baseId1;
     convertToBase = baseConversionState.baseId2;
 
-    //performs base conversion and formats binary outputs
     const convert = () => {
       if (convertToBase === 2) {
         if (baseConversionState.userInput.length > 4) {
@@ -161,7 +153,7 @@ const BaseConversion = (props) => {
       }
     };
 
-    parsedInput = parseInt(inputValue, currentBase); //converts userInput value to a string type
+    parsedInput = parseInt(inputValue, currentBase);
 
     if (currentBase === 2) {
       isBaseValid = validateBinaryInputs();
@@ -173,7 +165,10 @@ const BaseConversion = (props) => {
           ...baseConversionState,
           baseConversionOutput: "",
         });
-        seterrorStatement("Error, invalid binary number");
+        setError((currentState) => ({
+          ...currentState,
+          errorMessage: "Error, invalid binary number",
+        }));
         handleError();
       }
     } else if (currentBase === 8) {
@@ -186,7 +181,10 @@ const BaseConversion = (props) => {
           ...baseConversionState,
           baseConversionOutput: "",
         });
-        seterrorStatement("Error, invalid octal number");
+        setError((currentState) => ({
+          ...currentState,
+          errorMessage: "Error, invalid octal number",
+        }));
         handleError();
       }
     } else if (currentBase === 10) {
@@ -199,7 +197,10 @@ const BaseConversion = (props) => {
           ...baseConversionState,
           baseConversionOutput: "",
         });
-        seterrorStatement("Error, invalid decimal number");
+        setError((currentState) => ({
+          ...currentState,
+          errorMessage: "Error, invalid decimal number",
+        }));
         handleError();
       }
     } else if (currentBase === 16) {
@@ -212,7 +213,10 @@ const BaseConversion = (props) => {
           ...baseConversionState,
           baseConversionOutput: "",
         });
-        seterrorStatement("Error, invalid hexadecimal number");
+        setError((currentState) => ({
+          ...currentState,
+          errorMessage: "Error, invalid hexadecimal number",
+        }));
         handleError();
       }
     } else {
@@ -220,7 +224,10 @@ const BaseConversion = (props) => {
         ...baseConversionState,
         baseConversionOutput: "",
       });
-      seterrorStatement("Error, please enter a valid number");
+      setError((currentState) => ({
+        ...currentState,
+        errorMessage: "Error, please enter a valid number",
+      }));
       handleError();
     }
   };

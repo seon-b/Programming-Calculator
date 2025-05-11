@@ -2,14 +2,14 @@ import React from "react";
 import { createRoot } from "react-dom/client";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import { ValidationProvider } from "./Contexts/ValidationContext";
+import { ErrorProvider } from "./Contexts/ErrorContext";
 
 const domNode = document.getElementById("root");
 const root = createRoot(domNode);
 root.render(
-  <ValidationProvider>
+  <ErrorProvider>
     <App />
-  </ValidationProvider>
+  </ErrorProvider>
 );
 
 // If you want to start measuring performance in your app, pass a function
