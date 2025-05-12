@@ -46,7 +46,7 @@ const ComplementCalculator = (props) => {
     if (!complementCalculatorState.binaryNumber) {
       setError((currentState) => ({
         ...currentState,
-        errorMessage: "Input fields cannot be empty",
+        errorMessage: "Error, input fields cannot be empty",
       }));
       handleError();
 
@@ -56,7 +56,7 @@ const ComplementCalculator = (props) => {
     if (complementCalculatorState.binaryNumber.length > 8) {
       setError((currentState) => ({
         ...currentState,
-        errorMessage: "Numbers cannot be more than 8 digits",
+        errorMessage: "Error, numbers cannot be more than 8 digits",
       }));
       handleError();
 

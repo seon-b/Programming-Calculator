@@ -194,7 +194,7 @@ const BinaryArithmetic = (props) => {
     ) {
       setError((currentState) => ({
         ...currentState,
-        errorMessage: "Input fields cannot be empty",
+        errorMessage: "Error, input fields cannot be empty",
       }));
       handleError();
 
@@ -207,7 +207,7 @@ const BinaryArithmetic = (props) => {
     ) {
       setError((currentState) => ({
         ...currentState,
-        errorMessage: "Numbers cannot be more than 8 digits",
+        errorMessage: "Error, numbers cannot be more than 8 digits",
       }));
       handleError();
 
