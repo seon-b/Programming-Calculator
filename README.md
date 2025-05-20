@@ -1,6 +1,10 @@
 # Programming Calculator
 
-Programming Calculator is an application that allows users to perform several calculations on binary numbers. It is primarily designed for computer science and computer engineering students taking courses that work with binary numbers. For example, a course in assembly language programming. [Project Demo](https://programming-calculator.netlify.app/)
+Programming Calculator is an application that allows users to perform several calculations on binary numbers. It is primarily designed for computer science and computer engineering students taking courses that work with binary numbers. For example, a course in assembly language programming.
+
+## Project Demo
+
+https://programming-calculator.netlify.app/
 
 ## Description
 
